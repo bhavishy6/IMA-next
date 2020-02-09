@@ -1,0 +1,41 @@
+Web Application to view and edit store inventory. 
+
+Home:
+dashboard of important information:
+    - Recent sales table 
+    - Total Sales pi chart of top products
+    - Clickouts to View inventory, Manage Sales
+
+Inventory:
+    - [Action] add new products
+		--> add entry to Products Collection
+	- [Action] manage products in inventory
+		- edit quantity in inventory
+		- remove product from inventory
+ 
+Sales:
+    - [Action] Make a Sale (Quantity of product sold, Customer sold to)
+        --> reduce inventory by that Quantity.
+		--> add entry to Sales Collection
+    - View recent Sales 
+    - View recent customers.
+
+Customers:
+	- [Action] Add a new customer
+		--> Name, address, running total of $ purchased
+	- View a Customer
+
+Mongo Databases:
+- customers 
+- sales
+- inventory
+
+
+
+Stack:
+Node.js server
+Mongo DB
+React front end
+
+
+

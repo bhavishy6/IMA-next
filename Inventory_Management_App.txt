@@ -39,3 +39,11 @@ React front end
 
 
 
+build a custom node server.js file. 
+have it connect to local mongo server.
+create collections for sales, customers, inventory
+make api endpoints to fetch data from these collections
+view them on their induvidual pages.
+
+admin / ima_db_admin__
+

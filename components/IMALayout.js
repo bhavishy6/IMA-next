@@ -1,4 +1,5 @@
 import IMAHeader from './IMAHeader';
+import React from 'react';
 
 const layoutStyle = {
   margin: 20,
@@ -6,13 +7,10 @@ const layoutStyle = {
   border: '1px solid #DDD'
 };
 
-const withIMALayout = Page => {
-  return () => (
-    <div style={layoutStyle}>
-      <IMAHeader />
-      <Page />
-    </div>
-  );
-};
-
-export default withIMALayout;
+const IMALayout = props => (
+  <div style={layoutStyle}>
+    <IMAHeader />
+    {props.children}
+  </div>
+);
+export default IMALayout;

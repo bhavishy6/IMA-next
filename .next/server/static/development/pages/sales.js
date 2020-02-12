@@ -88,85 +88,10 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
-
-/***/ "./components/IMAChart.js":
-/*!********************************!*\
-  !*** ./components/IMAChart.js ***!
-  \********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-jsx/style */ "styled-jsx/style");
-/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _nivo_bar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nivo/bar */ "@nivo/bar");
-/* harmony import */ var _nivo_bar__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nivo_bar__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "C:\\Users\\bhavi\\Documents\\Coding\\IMA-next\\components\\IMAChart.js";
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
-
-
-const config = {
-  keys: ["Iron Sheet", "Copper Sheet"],
-  margin: 2,
-  axisBotton: "Days",
-  axisTop: "quantity"
-};
-
-class IMAChart extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
-  render() {
-    return __jsx("div", {
-      className: "jsx-2800532807" + " " + "chart",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 16
-      },
-      __self: this
-    }, __jsx(_nivo_bar__WEBPACK_IMPORTED_MODULE_2__["ResponsiveBar"], {
-      data: this.props.data,
-      keys: config.keys,
-      indexBy: "country",
-      margin: config.margin,
-      padding: 0.3,
-      colors: "nivo",
-      colorBy: "id" // defs={config.defs}
-      // fill={config.fill}
-      ,
-      borderColor: "inherit:darker(1.6)",
-      axisTop: null,
-      axisRight: null,
-      axisBottom: config.axisBottom,
-      axisLeft: config.axisLeft,
-      labelSkipWidth: 12,
-      labelSkipHeight: 12,
-      labelTextColor: "inherit:darker(1.6)",
-      animate: true,
-      motionStiffness: 90,
-      motionDamping: 15 // legends={config.legends}
-      ,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 17
-      },
-      __self: this
-    }), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
-      id: "2800532807",
-      __self: this
-    }, ".chart.jsx-2800532807{height:50vh;width:60vw;background:white;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);-webkit-transition:0.3s;transition:0.3s;}.chart.jsx-2800532807:hover{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2);}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcYmhhdmlcXERvY3VtZW50c1xcQ29kaW5nXFxJTUEtbmV4dFxcY29tcG9uZW50c1xcSU1BQ2hhcnQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBd0NvQixBQUdvQyxBQVE4QixZQVAvQixXQUNPLGlCQUNzQixBQU0zQyx1Q0FMb0Isd0NBQ3BCIiwiZmlsZSI6IkM6XFxVc2Vyc1xcYmhhdmlcXERvY3VtZW50c1xcQ29kaW5nXFxJTUEtbmV4dFxcY29tcG9uZW50c1xcSU1BQ2hhcnQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnXHJcbmltcG9ydCB7IFJlc3BvbnNpdmVCYXIgfSBmcm9tICdAbml2by9iYXInXHJcblxyXG5cclxuXHJcbmNvbnN0IGNvbmZpZyA9IHtcclxuICAgIGtleXM6IFtcIklyb24gU2hlZXRcIiwgXCJDb3BwZXIgU2hlZXRcIl0sXHJcbiAgICBtYXJnaW46IDIsXHJcbiAgICBheGlzQm90dG9uOiBcIkRheXNcIixcclxuICAgIGF4aXNUb3A6IFwicXVhbnRpdHlcIlxyXG59XHJcblxyXG5jbGFzcyBJTUFDaGFydCBleHRlbmRzIFJlYWN0LkNvbXBvbmVudCB7XHJcbiAgICByZW5kZXIoKSB7XHJcbiAgICAgICAgcmV0dXJuIChcclxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjaGFydFwiPlxyXG4gICAgICAgICAgICAgICAgPFJlc3BvbnNpdmVCYXJcclxuICAgICAgICAgICAgICAgICAgICBkYXRhPXt0aGlzLnByb3BzLmRhdGF9XHJcbiAgICAgICAgICAgICAgICAgICAga2V5cz17Y29uZmlnLmtleXN9XHJcbiAgICAgICAgICAgICAgICAgICAgaW5kZXhCeT1cImNvdW50cnlcIlxyXG4gICAgICAgICAgICAgICAgICAgIG1hcmdpbj17Y29uZmlnLm1hcmdpbn1cclxuICAgICAgICAgICAgICAgICAgICBwYWRkaW5nPXswLjN9XHJcbiAgICAgICAgICAgICAgICAgICAgY29sb3JzPVwibml2b1wiXHJcbiAgICAgICAgICAgICAgICAgICAgY29sb3JCeT1cImlkXCJcclxuICAgICAgICAgICAgICAgICAgICAvLyBkZWZzPXtjb25maWcuZGVmc31cclxuICAgICAgICAgICAgICAgICAgICAvLyBmaWxsPXtjb25maWcuZmlsbH1cclxuICAgICAgICAgICAgICAgICAgICBib3JkZXJDb2xvcj1cImluaGVyaXQ6ZGFya2VyKDEuNilcIlxyXG4gICAgICAgICAgICAgICAgICAgIGF4aXNUb3A9e251bGx9XHJcbiAgICAgICAgICAgICAgICAgICAgYXhpc1JpZ2h0PXtudWxsfVxyXG4gICAgICAgICAgICAgICAgICAgIGF4aXNCb3R0b209e2NvbmZpZy5heGlzQm90dG9tfVxyXG4gICAgICAgICAgICAgICAgICAgIGF4aXNMZWZ0PXtjb25maWcuYXhpc0xlZnR9XHJcbiAgICAgICAgICAgICAgICAgICAgbGFiZWxTa2lwV2lkdGg9ezEyfVxyXG4gICAgICAgICAgICAgICAgICAgIGxhYmVsU2tpcEhlaWdodD17MTJ9XHJcbiAgICAgICAgICAgICAgICAgICAgbGFiZWxUZXh0Q29sb3I9XCJpbmhlcml0OmRhcmtlcigxLjYpXCJcclxuICAgICAgICAgICAgICAgICAgICBhbmltYXRlPXt0cnVlfVxyXG4gICAgICAgICAgICAgICAgICAgIG1vdGlvblN0aWZmbmVzcz17OTB9XHJcbiAgICAgICAgICAgICAgICAgICAgbW90aW9uRGFtcGluZz17MTV9XHJcbiAgICAgICAgICAgICAgICAgICAgLy8gbGVnZW5kcz17Y29uZmlnLmxlZ2VuZHN9XHJcbiAgICAgICAgICAgICAgICAvPlxyXG4gICAgICAgICAgICAgICAgPHN0eWxlIGpzeD57XHJcbiAgICAgICAgICAgICAgICAgICAgYFxyXG4gICAgICAgICAgICAgICAgICAgLmNoYXJ0IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0OjUwdmg7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoOjYwdnc7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBib3gtc2hhZG93OiAwIDRweCA4cHggMCByZ2JhKDAsMCwwLDAuMik7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHRyYW5zaXRpb246IDAuM3M7XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIFxyXG4gICAgICAgICAgICAgICAgICAgIC5jaGFydDpob3ZlciB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICBib3gtc2hhZG93OiAwIDhweCAxNnB4IDAgcmdiYSgwLDAsMCwwLjIpO1xyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICBgXHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICA8L3N0eWxlPlxyXG4gICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICApXHJcbiAgICB9XHJcbn1cclxuXHJcbmV4cG9ydCBkZWZhdWx0IElNQUNoYXJ0Il19 */\n/*@ sourceURL=C:\\\\Users\\\\bhavi\\\\Documents\\\\Coding\\\\IMA-next\\\\components\\\\IMAChart.js */"));
-  }
-
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (IMAChart);
-
-/***/ }),
 
 /***/ "./components/IMAHeader.js":
 /*!*********************************!*\
@@ -1952,35 +1877,32 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_IMALayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/IMALayout */ "./components/IMALayout.js");
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_IMAChart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/IMAChart */ "./components/IMAChart.js");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_IMALayout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/IMALayout */ "./components/IMALayout.js");
 var _jsxFileName = "C:\\Users\\bhavi\\Documents\\Coding\\IMA-next\\pages\\sales.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-
-
-const SalesPage = props => __jsx(_components_IMALayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+const SalesPage = props => __jsx(_components_IMALayout__WEBPACK_IMPORTED_MODULE_2__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 7
+    lineNumber: 5
   },
   __self: undefined
 }, __jsx("div", {
   className: "container",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 8
+    lineNumber: 6
   },
   __self: undefined
 }, "sales charts"));
 
 SalesPage.getInitialProps = async () => {
-  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()('http://localhost:3000/api/sales');
+  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default()('http://localhost:3000/api/sales');
   const json = await res.json();
   console.log(`Show data fetched.${json}`);
   return {
@@ -1992,7 +1914,7 @@ SalesPage.getInitialProps = async () => {
 
 /***/ }),
 
-/***/ 6:
+/***/ 5:
 /*!******************************!*\
   !*** multi ./pages/sales.js ***!
   \******************************/
@@ -2001,17 +1923,6 @@ SalesPage.getInitialProps = async () => {
 
 module.exports = __webpack_require__(/*! C:\Users\bhavi\Documents\Coding\IMA-next\pages\sales.js */"./pages/sales.js");
 
-
-/***/ }),
-
-/***/ "@nivo/bar":
-/*!****************************!*\
-  !*** external "@nivo/bar" ***!
-  \****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@nivo/bar");
 
 /***/ }),
 
@@ -2122,17 +2033,6 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-is");
-
-/***/ }),
-
-/***/ "styled-jsx/style":
-/*!***********************************!*\
-  !*** external "styled-jsx/style" ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("styled-jsx/style");
 
 /***/ }),
 

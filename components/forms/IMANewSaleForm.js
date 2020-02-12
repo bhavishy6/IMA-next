@@ -1,4 +1,5 @@
 import { Formik, Form, useField, FieldArray } from "formik";
+import Autocomplete from "react-autocomplete";
 import * as Yup from "yup";
 import styled from "@emotion/styled";
 
@@ -21,6 +22,20 @@ const MyTextInput = ({ label, ...props }) => {
   );
 };
 
+const MySelect = ({ label, ...props }) => {
+  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+  // which we can spread on <input> and alse replace ErrorMessage entirely.
+  const [field, meta] = useField(props);
+  return (
+    <>
+      <StyledLabel htmlFor={props.id || props.name}>{label}</StyledLabel>
+      <StyledSelect {...field} {...props} />
+      {meta.touched && meta.error ? (
+        <StyledErrorMessage>{meta.error}</StyledErrorMessage>
+      ) : null}
+    </>
+  );
+};
 
 const MyDateInput = ({ label, ...props }) => {
   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
@@ -45,17 +60,17 @@ function submitNewSale(values) {
   //go through the products. if any products do not exist, create new product with qty 0.
   values['quantities'].forEach((product, index) => {
     // if (productListContainsProduct(product['name'])) {
-      updateProductInInventory(product['name'], product['qty'])
+    updateProductInInventory(product['name'], product['qty'])
     // }
-      //insert thisProductInDB into db 
+    //insert thisProductInDB into db 
   })
 }
 
 const updateProductInInventory = async (name, incrementAmt) => {
   const res = await fetch('http://localhost:3000/api/inventoryUpdate', {
-      method: 'post',
-      body: JSON.stringify({name:name, incrementAmt:incrementAmt})
-    })
+    method: 'post',
+    body: JSON.stringify({ name: name, incrementAmt: incrementAmt })
+  })
 }
 
 // Styled components ....
@@ -83,7 +98,10 @@ const StyledLabel = styled.label`
 
 
 const IMANewSaleForm = props => {
-
+  console.log(JSON.stringify(props.productList.map(
+    function (val, index) {
+      return { name: val.name }
+    })));
   return (
     <>
       <h1>Add New Sale</h1>
@@ -115,6 +133,7 @@ const IMANewSaleForm = props => {
             .min(1, 'Minimum of 1 product'),
         })}
         onSubmit={(values, { setSubmitting }) => {
+          console.log("submitted" + JSON.stringify(values));
           setTimeout(() => {
             submitNewSale(values);
             alert(JSON.stringify(values, null, 2));
@@ -122,7 +141,7 @@ const IMANewSaleForm = props => {
           }, 400);
         }}
       >
-        {({ values, errors, touched, handleReset }) => {
+        {({ values, errors, touched, handleReset, setFieldValue }) => {
           return (
             <Form>
               <MyTextInput
@@ -153,11 +172,11 @@ const IMANewSaleForm = props => {
                         <div className="row" key={index}>
                           <div className="col">
                             <label htmlFor={`quantities.${index}.name`}>Name</label>
-                            <MyTextInput
-                              name={`quantities.${index}.name`}
-                              placeholder="Iron Sheet"
-                              type="text"
-                            />
+                            <MySelect label="Product Name" name={`quantities.${index}.name`}>
+                              <option value="">Select a product</option>
+                              {props.productList.map(product => <option value={product.name}>{product.name + " ($"+ product.price +")"}</option>)}
+
+                            </MySelect>
                           </div>
                           <div className="col">
                             <label htmlFor={`quantities.${index}.qty`}> Quantity</label>
@@ -198,11 +217,4 @@ const IMANewSaleForm = props => {
   );
 };
 
-IMANewSaleForm.getInitialProps = async ctx => {
-  const res = await fetch('http://localhost:3000/api/inventory')
-  const json = await res.json()
-  console.log(`Show data fetched. ${JSON.stringify(json)}`);
-  var productList = json
-  return { productList: productList };
-}
 export default IMANewSaleForm;

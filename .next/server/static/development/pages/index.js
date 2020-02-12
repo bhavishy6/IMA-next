@@ -341,10 +341,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! formik */ "formik");
 /* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(formik__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! yup */ "yup");
-/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(yup__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @emotion/styled */ "@emotion/styled");
-/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_emotion_styled__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_autocomplete__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-autocomplete */ "react-autocomplete");
+/* harmony import */ var react_autocomplete__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_autocomplete__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! yup */ "yup");
+/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(yup__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @emotion/styled */ "@emotion/styled");
+/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_emotion_styled__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "C:\\Users\\bhavi\\Documents\\Coding\\IMA-next\\components\\forms\\IMANewSaleForm.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -354,6 +356,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 
 
 
@@ -376,7 +379,7 @@ const MyTextInput = (_ref) => {
     htmlFor: props.id || props.name,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 16
     },
     __self: undefined
   }, label), __jsx("input", _extends({
@@ -384,20 +387,20 @@ const MyTextInput = (_ref) => {
   }, field, props, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 17
     },
     __self: undefined
   })), meta.touched && meta.error ? __jsx("div", {
     className: "error",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 19
     },
     __self: undefined
   }, meta.error) : null);
 };
 
-const MyDateInput = (_ref2) => {
+const MySelect = (_ref2) => {
   let {
     label
   } = _ref2,
@@ -406,11 +409,42 @@ const MyDateInput = (_ref2) => {
   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
   // which we can spread on <input> and alse replace ErrorMessage entirely.
   const [field, meta] = Object(formik__WEBPACK_IMPORTED_MODULE_1__["useField"])(props);
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("label", {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(StyledLabel, {
     htmlFor: props.id || props.name,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 31
+    },
+    __self: undefined
+  }, label), __jsx(StyledSelect, _extends({}, field, props, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32
+    },
+    __self: undefined
+  })), meta.touched && meta.error ? __jsx(StyledErrorMessage, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34
+    },
+    __self: undefined
+  }, meta.error) : null);
+};
+
+const MyDateInput = (_ref3) => {
+  let {
+    label
+  } = _ref3,
+      props = _objectWithoutProperties(_ref3, ["label"]);
+
+  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+  // which we can spread on <input> and alse replace ErrorMessage entirely.
+  const [field, meta] = Object(formik__WEBPACK_IMPORTED_MODULE_1__["useField"])(props);
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("label", {
+    htmlFor: props.id || props.name,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46
     },
     __self: undefined
   }, label), __jsx("input", _extends({
@@ -418,14 +452,14 @@ const MyDateInput = (_ref2) => {
   }, field, props, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 47
     },
     __self: undefined
   })), meta.touched && meta.error ? __jsx("div", {
     className: "error",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 49
     },
     __self: undefined
   }, meta.error) : null);
@@ -455,10 +489,10 @@ const updateProductInInventory = async (name, incrementAmt) => {
 }; // Styled components ....
 
 
-const StyledSelect = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.select`
+const StyledSelect = _emotion_styled__WEBPACK_IMPORTED_MODULE_4___default.a.select`
     color: var(--blue);
   `;
-const StyledErrorMessage = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.div`
+const StyledErrorMessage = _emotion_styled__WEBPACK_IMPORTED_MODULE_4___default.a.div`
     font-size: 12px;
     color: var(--red-600);
     width: 400px;
@@ -471,15 +505,20 @@ const StyledErrorMessage = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.
       color: var(--red-300);
     }
   `;
-const StyledLabel = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.label`
+const StyledLabel = _emotion_styled__WEBPACK_IMPORTED_MODULE_4___default.a.label`
     margin-top: 1rem;
   `;
 
 const IMANewSaleForm = props => {
+  console.log(JSON.stringify(props.productList.map(function (val, index) {
+    return {
+      name: val.name
+    };
+  })));
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89
+      lineNumber: 107
     },
     __self: undefined
   }, "Add New Sale"), __jsx(formik__WEBPACK_IMPORTED_MODULE_1__["Formik"], {
@@ -490,18 +529,19 @@ const IMANewSaleForm = props => {
       quantities: [{}] // added for our select
 
     },
-    validationSchema: yup__WEBPACK_IMPORTED_MODULE_2__["object"]({
-      customerName: yup__WEBPACK_IMPORTED_MODULE_2__["string"]().max(15, "Must be 15 characters or less").required("Required"),
-      date: yup__WEBPACK_IMPORTED_MODULE_2__["date"]().required("Required"),
-      customerEmail: yup__WEBPACK_IMPORTED_MODULE_2__["string"]().email("Invalid email address"),
-      quantities: yup__WEBPACK_IMPORTED_MODULE_2__["array"]().of(yup__WEBPACK_IMPORTED_MODULE_2__["object"]().shape({
-        name: yup__WEBPACK_IMPORTED_MODULE_2__["string"]().required('Required'),
-        qty: yup__WEBPACK_IMPORTED_MODULE_2__["number"]().min(0, 'Must be atleast 1').required('Required')
+    validationSchema: yup__WEBPACK_IMPORTED_MODULE_3__["object"]({
+      customerName: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().max(15, "Must be 15 characters or less").required("Required"),
+      date: yup__WEBPACK_IMPORTED_MODULE_3__["date"]().required("Required"),
+      customerEmail: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().email("Invalid email address"),
+      quantities: yup__WEBPACK_IMPORTED_MODULE_3__["array"]().of(yup__WEBPACK_IMPORTED_MODULE_3__["object"]().shape({
+        name: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().required('Required'),
+        qty: yup__WEBPACK_IMPORTED_MODULE_3__["number"]().min(0, 'Must be atleast 1').required('Required')
       })).required('Must have products sold').min(1, 'Minimum of 1 product')
     }),
     onSubmit: (values, {
       setSubmitting
     }) => {
+      console.log("submitted" + JSON.stringify(values));
       setTimeout(() => {
         submitNewSale(values);
         alert(JSON.stringify(values, null, 2));
@@ -510,19 +550,20 @@ const IMANewSaleForm = props => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90
+      lineNumber: 108
     },
     __self: undefined
   }, ({
     values,
     errors,
     touched,
-    handleReset
+    handleReset,
+    setFieldValue
   }) => {
     return __jsx(formik__WEBPACK_IMPORTED_MODULE_1__["Form"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 127
+        lineNumber: 146
       },
       __self: undefined
     }, __jsx(MyTextInput, {
@@ -532,7 +573,7 @@ const IMANewSaleForm = props => {
       placeholder: "John Doe",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 128
+        lineNumber: 147
       },
       __self: undefined
     }), __jsx(MyDateInput, {
@@ -542,7 +583,7 @@ const IMANewSaleForm = props => {
       placeholder: moment(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 134
+        lineNumber: 153
       },
       __self: undefined
     }), __jsx(MyTextInput, {
@@ -552,13 +593,13 @@ const IMANewSaleForm = props => {
       placeholder: "jane@doe.com",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 140
+        lineNumber: 159
       },
       __self: undefined
     }), __jsx("h3", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 146
+        lineNumber: 165
       },
       __self: undefined
     }, "Add Products Bought"), __jsx(formik__WEBPACK_IMPORTED_MODULE_1__["FieldArray"], {
@@ -566,7 +607,7 @@ const IMANewSaleForm = props => {
       render: arrayHelpers => __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 150
+          lineNumber: 169
         },
         __self: undefined
       }, values.quantities.length > 0 && values.quantities.map((product, index) => __jsx("div", {
@@ -574,44 +615,57 @@ const IMANewSaleForm = props => {
         key: index,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 153
+          lineNumber: 172
         },
         __self: undefined
       }, __jsx("div", {
         className: "col",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 154
+          lineNumber: 173
         },
         __self: undefined
       }, __jsx("label", {
         htmlFor: `quantities.${index}.name`,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 155
+          lineNumber: 174
         },
         __self: undefined
-      }, "Name"), __jsx(MyTextInput, {
+      }, "Name"), __jsx(MySelect, {
+        label: "Product Name",
         name: `quantities.${index}.name`,
-        placeholder: "Iron Sheet",
-        type: "text",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 156
+          lineNumber: 175
         },
         __self: undefined
-      })), __jsx("div", {
+      }, __jsx("option", {
+        value: "",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 176
+        },
+        __self: undefined
+      }, "Select a product"), props.productList.map(product => __jsx("option", {
+        value: product.name,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 177
+        },
+        __self: undefined
+      }, product.name + " ($" + product.price + ")")))), __jsx("div", {
         className: "col",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 162
+          lineNumber: 181
         },
         __self: undefined
       }, __jsx("label", {
         htmlFor: `quantities.${index}.qty`,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 163
+          lineNumber: 182
         },
         __self: undefined
       }, " Quantity"), __jsx(MyTextInput, {
@@ -620,14 +674,14 @@ const IMANewSaleForm = props => {
         type: "number",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 164
+          lineNumber: 183
         },
         __self: undefined
       })), __jsx("div", {
         className: "col",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 170
+          lineNumber: 189
         },
         __self: undefined
       }, __jsx("button", {
@@ -636,7 +690,7 @@ const IMANewSaleForm = props => {
         onClick: () => arrayHelpers.remove(index),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 171
+          lineNumber: 190
         },
         __self: undefined
       }, "X")))), __jsx("button", {
@@ -648,34 +702,24 @@ const IMANewSaleForm = props => {
         }),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 181
+          lineNumber: 200
         },
         __self: undefined
       }, "Add Product")),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 147
+        lineNumber: 166
       },
       __self: undefined
     }), __jsx("button", {
       type: "submit",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 192
+        lineNumber: 211
       },
       __self: undefined
     }, "Submit"));
   }));
-};
-
-IMANewSaleForm.getInitialProps = async ctx => {
-  const res = await fetch('http://localhost:3000/api/inventory');
-  const json = await res.json();
-  console.log(`Show data fetched. ${JSON.stringify(json)}`);
-  var productList = json;
-  return {
-    productList: productList
-  };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (IMANewSaleForm);
@@ -2418,7 +2462,7 @@ const Dashboard = props => {
     },
     __self: undefined
   }))), __jsx(_components_forms_IMANewSaleForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    productList: ['Iron Sheet', 'Copper Sheet'],
+    productList: props.productList,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 22
@@ -2428,12 +2472,16 @@ const Dashboard = props => {
 };
 
 Dashboard.getInitialProps = async ctx => {
-  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()('http://localhost:3000/api/sales?daysAgo=' + 30);
-  const json = await res.json();
-  console.log(`Show data fetched. ${JSON.stringify(json)}`);
-  var mostRecentSales = getMostRecentSalesDict(json);
-  console.log(JSON.stringify(mostRecentSales[0]));
+  const sales = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()('http://localhost:3000/api/sales?daysAgo=' + 30);
+  const salesjson = await sales.json();
+  console.log(`Show data fetched. ${JSON.stringify(salesjson)}`);
+  var mostRecentSales = getMostRecentSalesDict(salesjson);
+  const inventory = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()('http://localhost:3000/api/inventory');
+  const inventoryjson = await inventory.json();
+  console.log(`Show data fetched. prod list ${JSON.stringify(inventoryjson)}`);
+  var productList = inventoryjson;
   return {
+    productList: productList,
     recentSalesByDateDict: mostRecentSales
   };
 };
@@ -2678,6 +2726,17 @@ module.exports = require("prop-types-exact");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-autocomplete":
+/*!*************************************!*\
+  !*** external "react-autocomplete" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-autocomplete");
 
 /***/ }),
 

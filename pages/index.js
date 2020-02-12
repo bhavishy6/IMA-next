@@ -19,19 +19,24 @@ const Dashboard = props => {
                 </div>
             </div>
 
-            <IMANewSaleForm productList={['Iron Sheet', 'Copper Sheet']} />
+            <IMANewSaleForm productList={props.productList} />
         </IMALayout>
     )
 
 };
 
 Dashboard.getInitialProps = async ctx => {
-    const res = await fetch('http://localhost:3000/api/sales?daysAgo=' + 30)
-    const json = await res.json()
-    console.log(`Show data fetched. ${JSON.stringify(json)}`);
-    var mostRecentSales = getMostRecentSalesDict(json)
-    console.log(JSON.stringify(mostRecentSales[0]))
-    return { recentSalesByDateDict: mostRecentSales };
+    const sales = await fetch('http://localhost:3000/api/sales?daysAgo=' + 30)
+    const salesjson = await sales.json()
+    console.log(`Show data fetched. ${JSON.stringify(salesjson)}`);
+    var mostRecentSales = getMostRecentSalesDict(salesjson)
+
+    const inventory = await fetch('http://localhost:3000/api/inventory')
+    const inventoryjson = await inventory.json()
+    console.log(`Show data fetched. prod list ${JSON.stringify(inventoryjson)}`);
+    var productList = inventoryjson
+    return { productList: productList,
+         recentSalesByDateDict: mostRecentSales };
 }
 
 function getMostRecentSalesDict(sales) {

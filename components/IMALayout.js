@@ -1,16 +1,15 @@
 import IMAHeader from './IMAHeader';
 import React from 'react';
-
-const layoutStyle = {
-  margin: 20,
-  padding: 20,
-  border: '1px solid #DDD'
-};
+import globalStyles from '../styles/global'
 
 const IMALayout = props => (
-  <div style={layoutStyle}>
+  <div className="page-layout">
+    <style jsx global>
+      {globalStyles}
+    </style>
     <IMAHeader />
     {props.children}
   </div>
+
 );
 export default IMALayout;

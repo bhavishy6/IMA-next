@@ -1,6 +1,8 @@
 import IMALayout from '../components/IMALayout'
 import IMARecentSalesChart from '../components/IMARecentSalesChart'
 import fetch from 'isomorphic-unfetch'
+import IMANewSaleForm from '../components/forms/IMANewSaleForm';
+
 var moment = require('moment')
 moment().format('L');
 
@@ -16,6 +18,8 @@ const Dashboard = props => {
                     <IMARecentSalesChart data={getMostRecentSalesNIVO(props.recentSalesByDateDict)} />
                 </div>
             </div>
+
+            <IMANewSaleForm productList={['Iron Sheet', 'Copper Sheet']} />
         </IMALayout>
     )
 

@@ -1,5 +1,4 @@
 import { Formik, Form, useField, FieldArray } from "formik";
-import Autocomplete from "react-autocomplete";
 import * as Yup from "yup";
 import styled from "@emotion/styled";
 
@@ -52,24 +51,43 @@ const MyDateInput = ({ label, ...props }) => {
   );
 };
 
-function submitNewSale(values) {
-  //calculate totalPrice of sale
-  //add entry to Sales collection in Mongo.
+function submitNewSale(productList, values) {
+  var totalPrice = 0;
+  values.quantities.forEach((product, index)=> {
+    var productPrice = getProductFromProductList(productList, product.name).price;
+    product.price = productPrice;
+    totalPrice += product.price * product.qty;
+  }, values.quantities );
+  values.totalPrice = totalPrice;
+  console.log(JSON.stringify(values));
+  insertSaleIntoSales(values); 
   //check if customer already exists by Name. if not add new with email if exists.
-  //find products in Products and decrease qty by amount
-  //go through the products. if any products do not exist, create new product with qty 0.
   values['quantities'].forEach((product, index) => {
-    // if (productListContainsProduct(product['name'])) {
     updateProductInInventory(product['name'], product['qty'])
-    // }
-    //insert thisProductInDB into db 
   })
+}
+
+function getProductFromProductList(productList, productName) {
+  var ret = null
+  productList.forEach((product, index) => {
+    if(product.name === productName) {
+      ret = product;
+    }
+  })
+  return ret;
 }
 
 const updateProductInInventory = async (name, incrementAmt) => {
   const res = await fetch('http://localhost:3000/api/inventoryUpdate', {
     method: 'post',
     body: JSON.stringify({ name: name, incrementAmt: incrementAmt })
+  })
+}
+
+const insertSaleIntoSales = async (sale) => {
+  const rest = await fetch('http://localhost:3000/api/sales', {
+    method:'post',
+    body: JSON.stringify(sale)
   })
 }
 
@@ -132,10 +150,11 @@ const IMANewSaleForm = props => {
             ).required('Must have products sold')
             .min(1, 'Minimum of 1 product'),
         })}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
           console.log("submitted" + JSON.stringify(values));
+          resetForm({});
           setTimeout(() => {
-            submitNewSale(values);
+            submitNewSale(props.productList, values);
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
           }, 400);
@@ -173,8 +192,8 @@ const IMANewSaleForm = props => {
                           <div className="col">
                             <label htmlFor={`quantities.${index}.name`}>Name</label>
                             <MySelect label="Product Name" name={`quantities.${index}.name`}>
-                              <option value="">Select a product</option>
-                              {props.productList.map(product => <option value={product.name}>{product.name + " ($"+ product.price +")"}</option>)}
+                              <option selected="selected" value="">Select a product</option>
+                              {props.productList.map(product => <option key={product.name} value={product.name}>{product.name + " ($"+ product.price +")"}</option>)}
 
                             </MySelect>
                           </div>

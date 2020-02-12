@@ -341,12 +341,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! formik */ "formik");
 /* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(formik__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_autocomplete__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-autocomplete */ "react-autocomplete");
-/* harmony import */ var react_autocomplete__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_autocomplete__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! yup */ "yup");
-/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(yup__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @emotion/styled */ "@emotion/styled");
-/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_emotion_styled__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! yup */ "yup");
+/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(yup__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @emotion/styled */ "@emotion/styled");
+/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_emotion_styled__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "C:\\Users\\bhavi\\Documents\\Coding\\IMA-next\\components\\forms\\IMANewSaleForm.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -356,7 +354,6 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
 
 
 
@@ -379,7 +376,7 @@ const MyTextInput = (_ref) => {
     htmlFor: props.id || props.name,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 15
     },
     __self: undefined
   }, label), __jsx("input", _extends({
@@ -387,14 +384,14 @@ const MyTextInput = (_ref) => {
   }, field, props, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 16
     },
     __self: undefined
   })), meta.touched && meta.error ? __jsx("div", {
     className: "error",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 18
     },
     __self: undefined
   }, meta.error) : null);
@@ -413,19 +410,19 @@ const MySelect = (_ref2) => {
     htmlFor: props.id || props.name,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 30
     },
     __self: undefined
   }, label), __jsx(StyledSelect, _extends({}, field, props, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 31
     },
     __self: undefined
   })), meta.touched && meta.error ? __jsx(StyledErrorMessage, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 33
     },
     __self: undefined
   }, meta.error) : null);
@@ -444,7 +441,7 @@ const MyDateInput = (_ref3) => {
     htmlFor: props.id || props.name,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 45
     },
     __self: undefined
   }, label), __jsx("input", _extends({
@@ -452,30 +449,43 @@ const MyDateInput = (_ref3) => {
   }, field, props, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 46
     },
     __self: undefined
   })), meta.touched && meta.error ? __jsx("div", {
     className: "error",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49
+      lineNumber: 48
     },
     __self: undefined
   }, meta.error) : null);
 };
 
-function submitNewSale(values) {
-  //calculate totalPrice of sale
-  //add entry to Sales collection in Mongo.
-  //check if customer already exists by Name. if not add new with email if exists.
-  //find products in Products and decrease qty by amount
-  //go through the products. if any products do not exist, create new product with qty 0.
+function submitNewSale(productList, values) {
+  var totalPrice = 0;
+  values.quantities.forEach((product, index) => {
+    var productPrice = getProductFromProductList(productList, product.name).price;
+    product.price = productPrice;
+    totalPrice += product.price * product.qty;
+  }, values.quantities);
+  values.totalPrice = totalPrice;
+  console.log(JSON.stringify(values));
+  insertSaleIntoSales(values); //check if customer already exists by Name. if not add new with email if exists.
+
   values['quantities'].forEach((product, index) => {
-    // if (productListContainsProduct(product['name'])) {
-    updateProductInInventory(product['name'], product['qty']); // }
-    //insert thisProductInDB into db 
+    updateProductInInventory(product['name'], product['qty']);
   });
+}
+
+function getProductFromProductList(productList, productName) {
+  var ret = null;
+  productList.forEach((product, index) => {
+    if (product.name === productName) {
+      ret = product;
+    }
+  });
+  return ret;
 }
 
 const updateProductInInventory = async (name, incrementAmt) => {
@@ -486,13 +496,20 @@ const updateProductInInventory = async (name, incrementAmt) => {
       incrementAmt: incrementAmt
     })
   });
+};
+
+const insertSaleIntoSales = async sale => {
+  const rest = await fetch('http://localhost:3000/api/sales', {
+    method: 'post',
+    body: JSON.stringify(sale)
+  });
 }; // Styled components ....
 
 
-const StyledSelect = _emotion_styled__WEBPACK_IMPORTED_MODULE_4___default.a.select`
+const StyledSelect = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.select`
     color: var(--blue);
   `;
-const StyledErrorMessage = _emotion_styled__WEBPACK_IMPORTED_MODULE_4___default.a.div`
+const StyledErrorMessage = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.div`
     font-size: 12px;
     color: var(--red-600);
     width: 400px;
@@ -505,7 +522,7 @@ const StyledErrorMessage = _emotion_styled__WEBPACK_IMPORTED_MODULE_4___default.
       color: var(--red-300);
     }
   `;
-const StyledLabel = _emotion_styled__WEBPACK_IMPORTED_MODULE_4___default.a.label`
+const StyledLabel = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.label`
     margin-top: 1rem;
   `;
 
@@ -518,7 +535,7 @@ const IMANewSaleForm = props => {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 107
+      lineNumber: 125
     },
     __self: undefined
   }, "Add New Sale"), __jsx(formik__WEBPACK_IMPORTED_MODULE_1__["Formik"], {
@@ -529,28 +546,30 @@ const IMANewSaleForm = props => {
       quantities: [{}] // added for our select
 
     },
-    validationSchema: yup__WEBPACK_IMPORTED_MODULE_3__["object"]({
-      customerName: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().max(15, "Must be 15 characters or less").required("Required"),
-      date: yup__WEBPACK_IMPORTED_MODULE_3__["date"]().required("Required"),
-      customerEmail: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().email("Invalid email address"),
-      quantities: yup__WEBPACK_IMPORTED_MODULE_3__["array"]().of(yup__WEBPACK_IMPORTED_MODULE_3__["object"]().shape({
-        name: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().required('Required'),
-        qty: yup__WEBPACK_IMPORTED_MODULE_3__["number"]().min(0, 'Must be atleast 1').required('Required')
+    validationSchema: yup__WEBPACK_IMPORTED_MODULE_2__["object"]({
+      customerName: yup__WEBPACK_IMPORTED_MODULE_2__["string"]().max(15, "Must be 15 characters or less").required("Required"),
+      date: yup__WEBPACK_IMPORTED_MODULE_2__["date"]().required("Required"),
+      customerEmail: yup__WEBPACK_IMPORTED_MODULE_2__["string"]().email("Invalid email address"),
+      quantities: yup__WEBPACK_IMPORTED_MODULE_2__["array"]().of(yup__WEBPACK_IMPORTED_MODULE_2__["object"]().shape({
+        name: yup__WEBPACK_IMPORTED_MODULE_2__["string"]().required('Required'),
+        qty: yup__WEBPACK_IMPORTED_MODULE_2__["number"]().min(0, 'Must be atleast 1').required('Required')
       })).required('Must have products sold').min(1, 'Minimum of 1 product')
     }),
     onSubmit: (values, {
-      setSubmitting
+      setSubmitting,
+      resetForm
     }) => {
       console.log("submitted" + JSON.stringify(values));
+      resetForm({});
       setTimeout(() => {
-        submitNewSale(values);
+        submitNewSale(props.productList, values);
         alert(JSON.stringify(values, null, 2));
         setSubmitting(false);
       }, 400);
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108
+      lineNumber: 126
     },
     __self: undefined
   }, ({
@@ -563,7 +582,7 @@ const IMANewSaleForm = props => {
     return __jsx(formik__WEBPACK_IMPORTED_MODULE_1__["Form"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 146
+        lineNumber: 165
       },
       __self: undefined
     }, __jsx(MyTextInput, {
@@ -573,7 +592,7 @@ const IMANewSaleForm = props => {
       placeholder: "John Doe",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 147
+        lineNumber: 166
       },
       __self: undefined
     }), __jsx(MyDateInput, {
@@ -583,7 +602,7 @@ const IMANewSaleForm = props => {
       placeholder: moment(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 153
+        lineNumber: 172
       },
       __self: undefined
     }), __jsx(MyTextInput, {
@@ -593,13 +612,13 @@ const IMANewSaleForm = props => {
       placeholder: "jane@doe.com",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 159
+        lineNumber: 178
       },
       __self: undefined
     }), __jsx("h3", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 165
+        lineNumber: 184
       },
       __self: undefined
     }, "Add Products Bought"), __jsx(formik__WEBPACK_IMPORTED_MODULE_1__["FieldArray"], {
@@ -607,7 +626,7 @@ const IMANewSaleForm = props => {
       render: arrayHelpers => __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 169
+          lineNumber: 188
         },
         __self: undefined
       }, values.quantities.length > 0 && values.quantities.map((product, index) => __jsx("div", {
@@ -615,21 +634,21 @@ const IMANewSaleForm = props => {
         key: index,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 172
+          lineNumber: 191
         },
         __self: undefined
       }, __jsx("div", {
         className: "col",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 173
+          lineNumber: 192
         },
         __self: undefined
       }, __jsx("label", {
         htmlFor: `quantities.${index}.name`,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 174
+          lineNumber: 193
         },
         __self: undefined
       }, "Name"), __jsx(MySelect, {
@@ -637,35 +656,37 @@ const IMANewSaleForm = props => {
         name: `quantities.${index}.name`,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 175
+          lineNumber: 194
         },
         __self: undefined
       }, __jsx("option", {
+        selected: "selected",
         value: "",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 176
+          lineNumber: 195
         },
         __self: undefined
       }, "Select a product"), props.productList.map(product => __jsx("option", {
+        key: product.name,
         value: product.name,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 177
+          lineNumber: 196
         },
         __self: undefined
       }, product.name + " ($" + product.price + ")")))), __jsx("div", {
         className: "col",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 181
+          lineNumber: 200
         },
         __self: undefined
       }, __jsx("label", {
         htmlFor: `quantities.${index}.qty`,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 182
+          lineNumber: 201
         },
         __self: undefined
       }, " Quantity"), __jsx(MyTextInput, {
@@ -674,14 +695,14 @@ const IMANewSaleForm = props => {
         type: "number",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 183
+          lineNumber: 202
         },
         __self: undefined
       })), __jsx("div", {
         className: "col",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 189
+          lineNumber: 208
         },
         __self: undefined
       }, __jsx("button", {
@@ -690,7 +711,7 @@ const IMANewSaleForm = props => {
         onClick: () => arrayHelpers.remove(index),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 190
+          lineNumber: 209
         },
         __self: undefined
       }, "X")))), __jsx("button", {
@@ -702,20 +723,20 @@ const IMANewSaleForm = props => {
         }),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 200
+          lineNumber: 219
         },
         __self: undefined
       }, "Add Product")),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 166
+        lineNumber: 185
       },
       __self: undefined
     }), __jsx("button", {
       type: "submit",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 211
+        lineNumber: 230
       },
       __self: undefined
     }, "Submit"));
@@ -2726,17 +2747,6 @@ module.exports = require("prop-types-exact");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
-
-/***/ }),
-
-/***/ "react-autocomplete":
-/*!*************************************!*\
-  !*** external "react-autocomplete" ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("react-autocomplete");
 
 /***/ }),
 

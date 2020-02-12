@@ -26,5 +26,12 @@ handler.get(async (req, res) => {
     res.json(doc);
     res.end();
 });
-
+handler.post(async (req, res) => {
+    let data = req.body
+    data = JSON.parse(data);
+    let doc = await req.db.collection('sales').insertOne(data, function(err, res) {
+        if (err) throw err;
+        console.log("1 document inserted");
+      });
+});
 export default handler;

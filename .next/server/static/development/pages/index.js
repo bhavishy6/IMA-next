@@ -431,11 +431,28 @@ const MyDateInput = (_ref2) => {
   }, meta.error) : null);
 };
 
-function submitNewSale() {} //calculate totalPrice of sale
-//add entry to Sales collection in Mongo.
-//check if customer already exists by Name. if not add new with email if exists.
-//find products in Products and decrease qty by amount
-// Styled components ....
+function submitNewSale(values) {
+  //calculate totalPrice of sale
+  //add entry to Sales collection in Mongo.
+  //check if customer already exists by Name. if not add new with email if exists.
+  //find products in Products and decrease qty by amount
+  //go through the products. if any products do not exist, create new product with qty 0.
+  values['quantities'].forEach((product, index) => {
+    // if (productListContainsProduct(product['name'])) {
+    updateProductInInventory(product['name'], product['qty']); // }
+    //insert thisProductInDB into db 
+  });
+}
+
+const updateProductInInventory = async (name, incrementAmt) => {
+  const res = await fetch('http://localhost:3000/api/inventoryUpdate', {
+    method: 'post',
+    body: JSON.stringify({
+      name: name,
+      incrementAmt: incrementAmt
+    })
+  });
+}; // Styled components ....
 
 
 const StyledSelect = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.select`
@@ -462,7 +479,7 @@ const IMANewSaleForm = props => {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73
+      lineNumber: 89
     },
     __self: undefined
   }, "Add New Sale"), __jsx(formik__WEBPACK_IMPORTED_MODULE_1__["Formik"], {
@@ -486,14 +503,14 @@ const IMANewSaleForm = props => {
       setSubmitting
     }) => {
       setTimeout(() => {
-        submitNewSale();
+        submitNewSale(values);
         alert(JSON.stringify(values, null, 2));
         setSubmitting(false);
       }, 400);
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74
+      lineNumber: 90
     },
     __self: undefined
   }, ({
@@ -505,7 +522,7 @@ const IMANewSaleForm = props => {
     return __jsx(formik__WEBPACK_IMPORTED_MODULE_1__["Form"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 111
+        lineNumber: 127
       },
       __self: undefined
     }, __jsx(MyTextInput, {
@@ -515,7 +532,7 @@ const IMANewSaleForm = props => {
       placeholder: "John Doe",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 112
+        lineNumber: 128
       },
       __self: undefined
     }), __jsx(MyDateInput, {
@@ -525,7 +542,7 @@ const IMANewSaleForm = props => {
       placeholder: moment(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 118
+        lineNumber: 134
       },
       __self: undefined
     }), __jsx(MyTextInput, {
@@ -535,13 +552,13 @@ const IMANewSaleForm = props => {
       placeholder: "jane@doe.com",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 124
+        lineNumber: 140
       },
       __self: undefined
     }), __jsx("h3", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 130
+        lineNumber: 146
       },
       __self: undefined
     }, "Add Products Bought"), __jsx(formik__WEBPACK_IMPORTED_MODULE_1__["FieldArray"], {
@@ -549,7 +566,7 @@ const IMANewSaleForm = props => {
       render: arrayHelpers => __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 134
+          lineNumber: 150
         },
         __self: undefined
       }, values.quantities.length > 0 && values.quantities.map((product, index) => __jsx("div", {
@@ -557,21 +574,21 @@ const IMANewSaleForm = props => {
         key: index,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 137
+          lineNumber: 153
         },
         __self: undefined
       }, __jsx("div", {
         className: "col",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 154
         },
         __self: undefined
       }, __jsx("label", {
         htmlFor: `quantities.${index}.name`,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 139
+          lineNumber: 155
         },
         __self: undefined
       }, "Name"), __jsx(MyTextInput, {
@@ -580,21 +597,21 @@ const IMANewSaleForm = props => {
         type: "text",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 140
+          lineNumber: 156
         },
         __self: undefined
       })), __jsx("div", {
         className: "col",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 146
+          lineNumber: 162
         },
         __self: undefined
       }, __jsx("label", {
         htmlFor: `quantities.${index}.qty`,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 147
+          lineNumber: 163
         },
         __self: undefined
       }, " Quantity"), __jsx(MyTextInput, {
@@ -603,14 +620,14 @@ const IMANewSaleForm = props => {
         type: "number",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 148
+          lineNumber: 164
         },
         __self: undefined
       })), __jsx("div", {
         className: "col",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 154
+          lineNumber: 170
         },
         __self: undefined
       }, __jsx("button", {
@@ -619,7 +636,7 @@ const IMANewSaleForm = props => {
         onClick: () => arrayHelpers.remove(index),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 155
+          lineNumber: 171
         },
         __self: undefined
       }, "X")))), __jsx("button", {
@@ -631,24 +648,34 @@ const IMANewSaleForm = props => {
         }),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 165
+          lineNumber: 181
         },
         __self: undefined
       }, "Add Product")),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 131
+        lineNumber: 147
       },
       __self: undefined
     }), __jsx("button", {
       type: "submit",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 176
+        lineNumber: 192
       },
       __self: undefined
     }, "Submit"));
   }));
+};
+
+IMANewSaleForm.getInitialProps = async ctx => {
+  const res = await fetch('http://localhost:3000/api/inventory');
+  const json = await res.json();
+  console.log(`Show data fetched. ${JSON.stringify(json)}`);
+  var productList = json;
+  return {
+    productList: productList
+  };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (IMANewSaleForm);

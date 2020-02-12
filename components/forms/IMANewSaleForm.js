@@ -37,12 +37,27 @@ const MyDateInput = ({ label, ...props }) => {
   );
 };
 
-function submitNewSale() {
+function submitNewSale(values) {
   //calculate totalPrice of sale
   //add entry to Sales collection in Mongo.
   //check if customer already exists by Name. if not add new with email if exists.
   //find products in Products and decrease qty by amount
+  //go through the products. if any products do not exist, create new product with qty 0.
+  values['quantities'].forEach((product, index) => {
+    // if (productListContainsProduct(product['name'])) {
+      updateProductInInventory(product['name'], product['qty'])
+    // }
+      //insert thisProductInDB into db 
+  })
 }
+
+const updateProductInInventory = async (name, incrementAmt) => {
+  const res = await fetch('http://localhost:3000/api/inventoryUpdate', {
+      method: 'post',
+      body: JSON.stringify({name:name, incrementAmt:incrementAmt})
+    })
+}
+
 // Styled components ....
 const StyledSelect = styled.select`
     color: var(--blue);
@@ -65,6 +80,7 @@ const StyledErrorMessage = styled.div`
 const StyledLabel = styled.label`
     margin-top: 1rem;
   `;
+
 
 const IMANewSaleForm = props => {
 
@@ -100,7 +116,7 @@ const IMANewSaleForm = props => {
         })}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            submitNewSale();
+            submitNewSale(values);
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
           }, 400);
@@ -182,4 +198,11 @@ const IMANewSaleForm = props => {
   );
 };
 
+IMANewSaleForm.getInitialProps = async ctx => {
+  const res = await fetch('http://localhost:3000/api/inventory')
+  const json = await res.json()
+  console.log(`Show data fetched. ${JSON.stringify(json)}`);
+  var productList = json
+  return { productList: productList };
+}
 export default IMANewSaleForm;

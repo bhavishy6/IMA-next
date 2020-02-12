@@ -246,17 +246,20 @@ var IMARecentSalesChart = function IMARecentSalesChart(_ref) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectWithoutProperties.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! yup */ "./node_modules/yup/es/index.js");
-/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/styled.browser.esm.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.js");
+/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! yup */ "./node_modules/yup/es/index.js");
+/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/styled.browser.esm.js");
+
 
 
 
@@ -264,10 +267,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var _jsxFileName = "C:\\Users\\bhavi\\Documents\\Coding\\IMA-next\\components\\forms\\IMANewSaleForm.js";
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
 
 function _templateObject3() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__["default"])(["\n    margin-top: 1rem;\n  "]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    margin-top: 1rem;\n  "]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -277,7 +280,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__["default"])(["\n    font-size: 12px;\n    color: var(--red-600);\n    width: 400px;\n    margin-top: 0.25rem;\n    &:before {\n      content: \"\u274C \";\n      font-size: 10px;\n    }\n    @media (prefers-color-scheme: dark) {\n      color: var(--red-300);\n    }\n  "]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    font-size: 12px;\n    color: var(--red-600);\n    width: 400px;\n    margin-top: 0.25rem;\n    &:before {\n      content: \"\u274C \";\n      font-size: 10px;\n    }\n    @media (prefers-color-scheme: dark) {\n      color: var(--red-300);\n    }\n  "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -287,7 +290,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__["default"])(["\n    color: var(--blue);\n  "]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    color: var(--blue);\n  "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -306,23 +309,23 @@ moment().format('L');
 
 var MyTextInput = function MyTextInput(_ref) {
   var label = _ref.label,
-      props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref, ["label"]);
+      props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_5__["default"])(_ref, ["label"]);
 
   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
   // which we can spread on <input> and alse replace ErrorMessage entirely.
-  var _useField = Object(formik__WEBPACK_IMPORTED_MODULE_6__["useField"])(props),
-      _useField2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__["default"])(_useField, 2),
+  var _useField = Object(formik__WEBPACK_IMPORTED_MODULE_7__["useField"])(props),
+      _useField2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__["default"])(_useField, 2),
       field = _useField2[0],
       meta = _useField2[1];
 
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_5___default.a.Fragment, null, __jsx("label", {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_6___default.a.Fragment, null, __jsx("label", {
     htmlFor: props.id || props.name,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 15
     },
     __self: this
-  }, label), __jsx("input", Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({
+  }, label), __jsx("input", Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({
     className: "text-input"
   }, field, props, {
     __source: {
@@ -342,23 +345,23 @@ var MyTextInput = function MyTextInput(_ref) {
 
 var MyDateInput = function MyDateInput(_ref2) {
   var label = _ref2.label,
-      props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, ["label"]);
+      props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_5__["default"])(_ref2, ["label"]);
 
   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
   // which we can spread on <input> and alse replace ErrorMessage entirely.
-  var _useField3 = Object(formik__WEBPACK_IMPORTED_MODULE_6__["useField"])(props),
-      _useField4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__["default"])(_useField3, 2),
+  var _useField3 = Object(formik__WEBPACK_IMPORTED_MODULE_7__["useField"])(props),
+      _useField4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__["default"])(_useField3, 2),
       field = _useField4[0],
       meta = _useField4[1];
 
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_5___default.a.Fragment, null, __jsx("label", {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_6___default.a.Fragment, null, __jsx("label", {
     htmlFor: props.id || props.name,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 31
     },
     __self: this
-  }, label), __jsx("input", Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({
+  }, label), __jsx("input", Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({
     className: "text-input"
   }, field, props, {
     __source: {
@@ -376,25 +379,58 @@ var MyDateInput = function MyDateInput(_ref2) {
   }, meta.error) : null);
 };
 
-function submitNewSale() {} //calculate totalPrice of sale
-//add entry to Sales collection in Mongo.
-//check if customer already exists by Name. if not add new with email if exists.
-//find products in Products and decrease qty by amount
-// Styled components ....
+function submitNewSale(values) {
+  //calculate totalPrice of sale
+  //add entry to Sales collection in Mongo.
+  //check if customer already exists by Name. if not add new with email if exists.
+  //find products in Products and decrease qty by amount
+  //go through the products. if any products do not exist, create new product with qty 0.
+  values['quantities'].forEach(function (product, index) {
+    // if (productListContainsProduct(product['name'])) {
+    updateProductInInventory(product['name'], product['qty']); // }
+    //insert thisProductInDB into db 
+  });
+}
+
+var updateProductInInventory = function updateProductInInventory(name, incrementAmt) {
+  var res;
+  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.async(function updateProductInInventory$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.awrap(fetch('http://localhost:3000/api/inventoryUpdate', {
+            method: 'post',
+            body: _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default()({
+              name: name,
+              incrementAmt: incrementAmt
+            })
+          }));
+
+        case 2:
+          res = _context.sent;
+
+        case 3:
+        case "end":
+          return _context.stop();
+      }
+    }
+  });
+}; // Styled components ....
 
 
-var StyledSelect = _emotion_styled__WEBPACK_IMPORTED_MODULE_8__["default"].select(_templateObject());
-var StyledErrorMessage = _emotion_styled__WEBPACK_IMPORTED_MODULE_8__["default"].div(_templateObject2());
-var StyledLabel = _emotion_styled__WEBPACK_IMPORTED_MODULE_8__["default"].label(_templateObject3());
+var StyledSelect = _emotion_styled__WEBPACK_IMPORTED_MODULE_9__["default"].select(_templateObject());
+var StyledErrorMessage = _emotion_styled__WEBPACK_IMPORTED_MODULE_9__["default"].div(_templateObject2());
+var StyledLabel = _emotion_styled__WEBPACK_IMPORTED_MODULE_9__["default"].label(_templateObject3());
 
 var IMANewSaleForm = function IMANewSaleForm(props) {
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_5___default.a.Fragment, null, __jsx("h1", {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_6___default.a.Fragment, null, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73
+      lineNumber: 89
     },
     __self: this
-  }, "Add New Sale"), __jsx(formik__WEBPACK_IMPORTED_MODULE_6__["Formik"], {
+  }, "Add New Sale"), __jsx(formik__WEBPACK_IMPORTED_MODULE_7__["Formik"], {
     initialValues: {
       customerName: "",
       date: "",
@@ -402,26 +438,26 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
       quantities: [{}] // added for our select
 
     },
-    validationSchema: yup__WEBPACK_IMPORTED_MODULE_7__["object"]({
-      customerName: yup__WEBPACK_IMPORTED_MODULE_7__["string"]().max(15, "Must be 15 characters or less").required("Required"),
-      date: yup__WEBPACK_IMPORTED_MODULE_7__["date"]().required("Required"),
-      customerEmail: yup__WEBPACK_IMPORTED_MODULE_7__["string"]().email("Invalid email address"),
-      quantities: yup__WEBPACK_IMPORTED_MODULE_7__["array"]().of(yup__WEBPACK_IMPORTED_MODULE_7__["object"]().shape({
-        name: yup__WEBPACK_IMPORTED_MODULE_7__["string"]().required('Required'),
-        qty: yup__WEBPACK_IMPORTED_MODULE_7__["number"]().min(0, 'Must be atleast 1').required('Required')
+    validationSchema: yup__WEBPACK_IMPORTED_MODULE_8__["object"]({
+      customerName: yup__WEBPACK_IMPORTED_MODULE_8__["string"]().max(15, "Must be 15 characters or less").required("Required"),
+      date: yup__WEBPACK_IMPORTED_MODULE_8__["date"]().required("Required"),
+      customerEmail: yup__WEBPACK_IMPORTED_MODULE_8__["string"]().email("Invalid email address"),
+      quantities: yup__WEBPACK_IMPORTED_MODULE_8__["array"]().of(yup__WEBPACK_IMPORTED_MODULE_8__["object"]().shape({
+        name: yup__WEBPACK_IMPORTED_MODULE_8__["string"]().required('Required'),
+        qty: yup__WEBPACK_IMPORTED_MODULE_8__["number"]().min(0, 'Must be atleast 1').required('Required')
       })).required('Must have products sold').min(1, 'Minimum of 1 product')
     }),
     onSubmit: function onSubmit(values, _ref3) {
       var setSubmitting = _ref3.setSubmitting;
       setTimeout(function () {
-        submitNewSale();
-        alert(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(values, null, 2));
+        submitNewSale(values);
+        alert(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default()(values, null, 2));
         setSubmitting(false);
       }, 400);
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74
+      lineNumber: 90
     },
     __self: this
   }, function (_ref4) {
@@ -429,10 +465,10 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
         errors = _ref4.errors,
         touched = _ref4.touched,
         handleReset = _ref4.handleReset;
-    return __jsx(formik__WEBPACK_IMPORTED_MODULE_6__["Form"], {
+    return __jsx(formik__WEBPACK_IMPORTED_MODULE_7__["Form"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 111
+        lineNumber: 127
       },
       __self: this
     }, __jsx(MyTextInput, {
@@ -442,7 +478,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
       placeholder: "John Doe",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 112
+        lineNumber: 128
       },
       __self: this
     }), __jsx(MyDateInput, {
@@ -452,7 +488,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
       placeholder: moment(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 118
+        lineNumber: 134
       },
       __self: this
     }), __jsx(MyTextInput, {
@@ -462,22 +498,22 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
       placeholder: "jane@doe.com",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 124
+        lineNumber: 140
       },
       __self: this
     }), __jsx("h3", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 130
+        lineNumber: 146
       },
       __self: this
-    }, "Add Products Bought"), __jsx(formik__WEBPACK_IMPORTED_MODULE_6__["FieldArray"], {
+    }, "Add Products Bought"), __jsx(formik__WEBPACK_IMPORTED_MODULE_7__["FieldArray"], {
       name: "quantities",
       render: function render(arrayHelpers) {
         return __jsx("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 134
+            lineNumber: 150
           },
           __self: this
         }, values.quantities.length > 0 && values.quantities.map(function (product, index) {
@@ -486,21 +522,21 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             key: index,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 137
+              lineNumber: 153
             },
             __self: this
           }, __jsx("div", {
             className: "col",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 138
+              lineNumber: 154
             },
             __self: this
           }, __jsx("label", {
             htmlFor: "quantities.".concat(index, ".name"),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 139
+              lineNumber: 155
             },
             __self: this
           }, "Name"), __jsx(MyTextInput, {
@@ -509,21 +545,21 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             type: "text",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 140
+              lineNumber: 156
             },
             __self: this
           })), __jsx("div", {
             className: "col",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 146
+              lineNumber: 162
             },
             __self: this
           }, __jsx("label", {
             htmlFor: "quantities.".concat(index, ".qty"),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 147
+              lineNumber: 163
             },
             __self: this
           }, " Quantity"), __jsx(MyTextInput, {
@@ -532,14 +568,14 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             type: "number",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 148
+              lineNumber: 164
             },
             __self: this
           })), __jsx("div", {
             className: "col",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 154
+              lineNumber: 170
             },
             __self: this
           }, __jsx("button", {
@@ -550,7 +586,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 155
+              lineNumber: 171
             },
             __self: this
           }, "X")));
@@ -565,25 +601,55 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 165
+            lineNumber: 181
           },
           __self: this
         }, "Add Product"));
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 131
+        lineNumber: 147
       },
       __self: this
     }), __jsx("button", {
       type: "submit",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 176
+        lineNumber: 192
       },
       __self: this
     }, "Submit"));
   }));
+};
+
+IMANewSaleForm.getInitialProps = function _callee(ctx) {
+  var res, json, productList;
+  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.async(function _callee$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.next = 2;
+          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.awrap(fetch('http://localhost:3000/api/inventory'));
+
+        case 2:
+          res = _context2.sent;
+          _context2.next = 5;
+          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.awrap(res.json());
+
+        case 5:
+          json = _context2.sent;
+          console.log("Show data fetched. ".concat(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default()(json)));
+          productList = json;
+          return _context2.abrupt("return", {
+            productList: productList
+          });
+
+        case 9:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  });
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (IMANewSaleForm);

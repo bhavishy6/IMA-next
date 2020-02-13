@@ -24,6 +24,7 @@
     "react": "^16.12.0",
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.12.0",
+    "react-table": "^7.0.0-rc.15",
     "yup": "^0.28.1"
   }
 }

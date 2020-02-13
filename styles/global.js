@@ -474,7 +474,7 @@ export default css.global`
     font-weight: bold;
     text-align: left;
     border-bottom: 2px solid var(--gray-300);
-    color: var(--gray-300);
+    color: var(--gray-700);
   }
   
   @media (prefers-color-scheme: dark) {

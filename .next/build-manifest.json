@@ -24,6 +24,14 @@
     "/index": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
+    ],
+    "/inventory": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/sales": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ]
   }
 }

@@ -12,6 +12,9 @@ const IMAHeader = () => (
     <Link href="/sales">
       <a style={linkStyle}>Sales</a>
     </Link>
+    <Link href="/inventory">
+      <a style={linkStyle}>Inventory</a>
+    </Link>
   </div>
 );
 

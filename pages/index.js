@@ -28,12 +28,11 @@ const Dashboard = props => {
 Dashboard.getInitialProps = async ctx => {
     const sales = await fetch('http://localhost:3000/api/sales?daysAgo=' + 30)
     const salesjson = await sales.json()
-    console.log(`Show data fetched. ${JSON.stringify(salesjson)}`);
+    console.log(`recent sales fetched. ${JSON.stringify(salesjson)}`);
     var mostRecentSales = getMostRecentSalesDict(salesjson)
 
     const inventory = await fetch('http://localhost:3000/api/inventory')
     const inventoryjson = await inventory.json()
-    console.log(`Show data fetched. prod list ${JSON.stringify(inventoryjson)}`);
     var productList = inventoryjson
     return { productList: productList,
          recentSalesByDateDict: mostRecentSales };
@@ -42,20 +41,15 @@ Dashboard.getInitialProps = async ctx => {
 function getMostRecentSalesDict(sales) {
     var recentSales = {}
     sales.forEach((sale, index) => {
-        console.log(index + ":" + sale["date"])
         var date = moment(sale["date"]).format("L")
         var quantities = sale["quantities"]
-        // console.log(JSON.stringify(quantities))
         if (recentSales[date]) {
             console.log('this date exists' + date)
             recentSales[date].forEach((product, index) => {
-                // console.log("existing product name for this day: " + product['name'])
                 var sameProduct = findProductInQuantities(product["name"], quantities)
-                console.log(JSON.stringify(sameProduct))
                 if (sameProduct === null) {
 
                 } else {
-                    // console.log("found same product: " + JSON.stringify(product) + product['qty'] +"+\n " + JSON.stringify(sameProduct))
                     product["qty"] += sameProduct["qty"]
                 }
             }, recentSales[date])
@@ -64,7 +58,6 @@ function getMostRecentSalesDict(sales) {
             recentSales[date] = sale["quantities"]
         }
     })
-    console.log("map:  " + JSON.stringify(recentSales) + "232323")
     return recentSales;
 };
 
@@ -86,7 +79,6 @@ function getMostRecentSalesNIVO(recentSalesDict) {
             }
         }
      });
-     console.log("recentNIVO: " + JSON.stringify(recentSales))
     return recentSales;
 }
 
@@ -95,7 +87,6 @@ function findProductInQuantities(name, quantities) {
     quantities.forEach((product, index) => {
         console.log(name + "checking product name: " + product['name'])
         if (name == product['name']) {
-            console.log('true' + JSON.stringify(product))
             foundProduct = product;
         }
     });

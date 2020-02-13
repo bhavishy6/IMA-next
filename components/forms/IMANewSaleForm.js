@@ -53,17 +53,20 @@ const MyDateInput = ({ label, ...props }) => {
 
 function submitNewSale(productList, values) {
   var totalPrice = 0;
+  var existingProductQty = 0;
+  var productPrice = 0;
   values.quantities.forEach((product, index)=> {
-    var productPrice = getProductFromProductList(productList, product.name).price;
+    var p = getProductFromProductList(productList, product.name);
+    productPrice = p.price;
+    existingProductQty = p.qty
     product.price = productPrice;
     totalPrice += product.price * product.qty;
   }, values.quantities );
   values.totalPrice = totalPrice;
-  console.log(JSON.stringify(values));
   insertSaleIntoSales(values); 
   //check if customer already exists by Name. if not add new with email if exists.
   values['quantities'].forEach((product, index) => {
-    updateProductInInventory(product['name'], product['qty'])
+    updateProductInInventory(product['name'], existingProductQty - product['qty'], productPrice)
   })
 }
 
@@ -77,10 +80,10 @@ function getProductFromProductList(productList, productName) {
   return ret;
 }
 
-const updateProductInInventory = async (name, incrementAmt) => {
+const updateProductInInventory = async (name, qty, productPrice) => {
   const res = await fetch('http://localhost:3000/api/inventoryUpdate', {
     method: 'post',
-    body: JSON.stringify({ name: name, incrementAmt: incrementAmt })
+    body: JSON.stringify({ name: name, qty: qty, price:productPrice })
   })
 }
 
@@ -151,7 +154,7 @@ const IMANewSaleForm = props => {
             .min(1, 'Minimum of 1 product'),
         })}
         onSubmit={(values, { setSubmitting, resetForm }) => {
-          console.log("submitted" + JSON.stringify(values));
+          console.log("new sale submitted" + JSON.stringify(values));
           resetForm({});
           setTimeout(() => {
             submitNewSale(props.productList, values);

@@ -2477,11 +2477,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_forms_IMANewSaleForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/forms/IMANewSaleForm */ "./components/forms/IMANewSaleForm.js");
+/* harmony import */ var _components_forms_IMAInputs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/forms/IMAInputs */ "./components/forms/IMAInputs.js");
 var _jsxFileName = "C:\\Users\\bhavi\\Documents\\Coding\\IMA-next\\pages\\index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -2500,7 +2502,22 @@ class Dashboard extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     _defineProperty(this, "state", {
       productList: [],
       recentSalesByDateDict: [],
-      isLoading: true
+      isLoading: true,
+      daysAgo: 30
+    });
+
+    _defineProperty(this, "updateDaysAgo", event => {
+      console.log("select" + this.refs.daysAgo.value);
+      var salesDict = [];
+
+      var _asyncMostRecentSales = this.fetchRecentSales(this.refs.daysAgo.value).then(externalData => {
+        salesDict = this.getMostRecentSalesDict(externalData);
+        this.setState({
+          daysAgo: this.refs.daysAgo.value,
+          recentSalesByDateDict: this.getMostRecentSalesNIVO(salesDict),
+          isLoading: false
+        });
+      });
     });
   }
 
@@ -2517,25 +2534,18 @@ class Dashboard extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   async componentDidMount() {
-    var salesDict = [];
-
-    var _asyncMostRecentSales = this.fetchRecentSales(30).then(externalData => {
-      salesDict = this.getMostRecentSalesDict(externalData);
+    var _asyncMostRecentSales = this.fetchRecentSales(this.state.daysAgo).then(externalData => {
+      var salesDict = salesDict = this.getMostRecentSalesDict(externalData);
       this.setState({
         recentSalesByDateDict: this.getMostRecentSalesNIVO(salesDict)
       });
     });
 
-    console.log("cdm mrs" + JSON.stringify(salesDict));
-    var productList = [];
-
     var _asyncInventory = this.fetchInventory().then(externalData => {
-      productList = externalData;
-    });
-
-    this.setState({
-      productList: productList,
-      recentSalesByDateDict: salesDict
+      var productList = externalData;
+      this.setState({
+        productList: productList
+      });
     });
   }
 
@@ -2614,53 +2624,85 @@ class Dashboard extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       isLoading,
       recentSalesByDateDict
     } = this.state;
-    console.log(JSON.stringify(recentSalesByDateDict));
     return __jsx(_components_IMALayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 116
+        lineNumber: 124
       },
       __self: this
     }, __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 117
+        lineNumber: 125
       },
       __self: this
     }, "form to add new sale form to add new customer form to add new inventory item1", isLoading ? __jsx("p", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 121
+        lineNumber: 129
       },
       __self: this
     }, "Loading...") : __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 123
+        lineNumber: 131
       },
       __self: this
-    }, "recent sales since 30 days ago: ", JSON.stringify(recentSalesByDateDict)), __jsx("div", {
+    }, "Raw Data: ", JSON.stringify(recentSalesByDateDict)), __jsx("select", {
+      label: "Days Ago",
+      name: "daysAgo",
+      ref: "daysAgo",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 132
+      },
+      __self: this
+    }, [30, 60, 90].map(item => __jsx("option", {
+      key: item,
+      value: item,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 135
+      },
+      __self: this
+    }, item + " Days Ago"))), __jsx("button", {
+      className: "secondary",
+      type: "remove",
+      onClick: this.updateDaysAgo,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 137
+      },
+      __self: this
+    }, "go"), __jsx("label", {
+      htmlFor: "daysAgo",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 144
+      },
+      __self: this
+    }, "Days Ago"), __jsx("div", {
       style: {
         height: 500 + "px",
         width: 500 + 'px'
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 125
+        lineNumber: 145
       },
       __self: this
     }, __jsx(_components_IMARecentSalesChart__WEBPACK_IMPORTED_MODULE_2__["default"], {
       data: recentSalesByDateDict,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 126
+        lineNumber: 146
       },
       __self: this
     })))), __jsx(_components_forms_IMANewSaleForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
       productList: this.state.productList,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 133
+        lineNumber: 153
       },
       __self: this
     }));

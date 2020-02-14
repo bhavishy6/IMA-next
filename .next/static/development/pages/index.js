@@ -80646,6 +80646,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! isomorphic-unfetch */ "./node_modules/next/dist/build/polyfills/fetch/index.js");
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_13__);
 /* harmony import */ var _components_forms_IMANewSaleForm__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/forms/IMANewSaleForm */ "./components/forms/IMANewSaleForm.js");
+/* harmony import */ var _components_forms_IMAInputs__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/forms/IMAInputs */ "./components/forms/IMAInputs.js");
 
 
 
@@ -80659,6 +80660,7 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "C:\\Users\\bhavi\\Documents\\Coding\\IMA-next\\pages\\index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement;
+
 
 
 
@@ -80690,7 +80692,23 @@ function (_Component) {
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "state", {
       productList: [],
       recentSalesByDateDict: [],
-      isLoading: true
+      isLoading: true,
+      daysAgo: 30
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "updateDaysAgo", function (event) {
+      console.log("select" + _this.refs.daysAgo.value);
+      var salesDict = [];
+
+      var _asyncMostRecentSales = _this.fetchRecentSales(_this.refs.daysAgo.value).then(function (externalData) {
+        salesDict = _this.getMostRecentSalesDict(externalData);
+
+        _this.setState({
+          daysAgo: _this.refs.daysAgo.value,
+          recentSalesByDateDict: _this.getMostRecentSalesNIVO(salesDict),
+          isLoading: false
+        });
+      });
     });
 
     return _this;
@@ -80755,31 +80773,28 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var salesDict, _asyncMostRecentSales, productList, _asyncInventory;
+      var _asyncMostRecentSales, _asyncInventory;
 
       return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.async(function componentDidMount$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-              salesDict = [];
-              _asyncMostRecentSales = this.fetchRecentSales(30).then(function (externalData) {
-                salesDict = _this2.getMostRecentSalesDict(externalData);
+              _asyncMostRecentSales = this.fetchRecentSales(this.state.daysAgo).then(function (externalData) {
+                var salesDict = salesDict = _this2.getMostRecentSalesDict(externalData);
 
                 _this2.setState({
                   recentSalesByDateDict: _this2.getMostRecentSalesNIVO(salesDict)
                 });
               });
-              console.log("cdm mrs" + _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(salesDict));
-              productList = [];
               _asyncInventory = this.fetchInventory().then(function (externalData) {
-                productList = externalData;
-              });
-              this.setState({
-                productList: productList,
-                recentSalesByDateDict: salesDict
+                var productList = externalData;
+
+                _this2.setState({
+                  productList: productList
+                });
               });
 
-            case 6:
+            case 2:
             case "end":
               return _context3.stop();
           }
@@ -80869,53 +80884,87 @@ function (_Component) {
       var _this$state = this.state,
           isLoading = _this$state.isLoading,
           recentSalesByDateDict = _this$state.recentSalesByDateDict;
-      console.log(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(recentSalesByDateDict));
       return __jsx(_components_IMALayout__WEBPACK_IMPORTED_MODULE_11__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 116
+          lineNumber: 124
         },
         __self: this
       }, __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 117
+          lineNumber: 125
         },
         __self: this
       }, "form to add new sale form to add new customer form to add new inventory item1", isLoading ? __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 121
+          lineNumber: 129
         },
         __self: this
       }, "Loading...") : __jsx(react__WEBPACK_IMPORTED_MODULE_10___default.a.Fragment, null, __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 123
+          lineNumber: 131
         },
         __self: this
-      }, "recent sales since 30 days ago: ", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(recentSalesByDateDict)), __jsx("div", {
+      }, "Raw Data: ", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(recentSalesByDateDict)), __jsx("select", {
+        label: "Days Ago",
+        name: "daysAgo",
+        ref: "daysAgo",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 132
+        },
+        __self: this
+      }, [30, 60, 90].map(function (item) {
+        return __jsx("option", {
+          key: item,
+          value: item,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 135
+          },
+          __self: this
+        }, item + " Days Ago");
+      })), __jsx("button", {
+        className: "secondary",
+        type: "remove",
+        onClick: this.updateDaysAgo,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 137
+        },
+        __self: this
+      }, "go"), __jsx("label", {
+        htmlFor: "daysAgo",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 144
+        },
+        __self: this
+      }, "Days Ago"), __jsx("div", {
         style: {
           height: 500 + "px",
           width: 500 + 'px'
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 125
+          lineNumber: 145
         },
         __self: this
       }, __jsx(_components_IMARecentSalesChart__WEBPACK_IMPORTED_MODULE_12__["default"], {
         data: recentSalesByDateDict,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 126
+          lineNumber: 146
         },
         __self: this
       })))), __jsx(_components_forms_IMANewSaleForm__WEBPACK_IMPORTED_MODULE_14__["default"], {
         productList: this.state.productList,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 133
+          lineNumber: 153
         },
         __self: this
       }));

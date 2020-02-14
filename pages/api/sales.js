@@ -16,7 +16,7 @@ handler.get(async (req, res) => {
         var startDateFilter = moment().subtract(daysAgo, 'days');
         dbQuery = {
             "date": {
-                $gte: new Date(startDateFilter._d)
+                $gte: new Date(startDateFilter)
             }
         };
     }

@@ -3,6 +3,7 @@ import IMARecentSalesChart from '../components/IMARecentSalesChart'
 import fetch from 'isomorphic-unfetch'
 import IMANewSaleForm from '../components/forms/IMANewSaleForm';
 import { Component } from 'react';
+import * as IMAInputs from '../components/forms/IMAInputs';
 
 var moment = require('moment')
 moment().format('L');
@@ -11,7 +12,8 @@ class Dashboard extends Component {
     state = {
         productList: [],
         recentSalesByDateDict: [],
-        isLoading: true
+        isLoading: true,
+        daysAgo: 30
     }
 
 
@@ -27,23 +29,19 @@ class Dashboard extends Component {
         return salesjson;
     }
     async componentDidMount() {
-        var salesDict = []
-        var _asyncMostRecentSales = this.fetchRecentSales(30).then(externalData => {
-            salesDict = this.getMostRecentSalesDict(externalData);
-            this.setState({recentSalesByDateDict:this.getMostRecentSalesNIVO(salesDict)});
+
+        var _asyncMostRecentSales = this.fetchRecentSales(this.state.daysAgo).then(externalData => {
+            var salesDict = salesDict = this.getMostRecentSalesDict(externalData);
+            this.setState({ recentSalesByDateDict: this.getMostRecentSalesNIVO(salesDict) });
         })
 
-        console.log("cdm mrs" + JSON.stringify(salesDict));
-
-        var productList = []
         var _asyncInventory = this.fetchInventory().then(externalData => {
-            productList = externalData;
+            var productList = externalData;
+            this.setState({
+                productList: productList,
+            });
         });
 
-        this.setState({
-            productList: productList,
-            recentSalesByDateDict: salesDict,
-        });
     }
 
     getMostRecentSalesDict(sales) {
@@ -109,9 +107,19 @@ class Dashboard extends Component {
         return foundProduct;
     }
 
+    updateDaysAgo = (event) => {
+        console.log("select" + this.refs.daysAgo.value)
+        var salesDict = []
+
+        var _asyncMostRecentSales = this.fetchRecentSales(this.refs.daysAgo.value).then(externalData => {
+            salesDict = this.getMostRecentSalesDict(externalData);
+            this.setState({ daysAgo: this.refs.daysAgo.value, recentSalesByDateDict: this.getMostRecentSalesNIVO(salesDict), isLoading: false });
+        })
+
+    }
+
     render() {
         const { isLoading, recentSalesByDateDict } = this.state
-        console.log(JSON.stringify(recentSalesByDateDict));
         return (
             <IMALayout>
                 <div >
@@ -119,13 +127,25 @@ class Dashboard extends Component {
                     form to add new customer
                     form to add new inventory item1
                     {isLoading ? <p>Loading...</p> :
-                     <> 
-                        <p>recent sales since 30 days ago: {JSON.stringify(recentSalesByDateDict)}</p>
+                        <>
+                            <p>Raw Data: {JSON.stringify(recentSalesByDateDict)}</p>
+                            <select label="Days Ago" name="daysAgo" ref="daysAgo" >
+                                {/* <option defaultValue="" value="">howmany days ago</option> */}
 
-                        <div style={{ height: 500 + "px", width: 500 + 'px' }}>
-                            <IMARecentSalesChart data={recentSalesByDateDict} />
-                        </div>
-                    </>
+                                {[30, 60, 90].map(item => <option key={item} value={item}>{item + " Days Ago"}</option>)}
+                            </select>
+                            <button
+                                className="secondary"
+                                type="remove"
+                                onClick={this.updateDaysAgo}
+                            >
+                                go
+                            </button>
+                            <label htmlFor="daysAgo">Days Ago</label>
+                            <div style={{ height: 500 + "px", width: 500 + 'px' }}>
+                                <IMARecentSalesChart data={recentSalesByDateDict} />
+                            </div>
+                        </>
 
                     }
                 </div>

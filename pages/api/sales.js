@@ -9,10 +9,9 @@ handler.use(middleware);
 
 handler.get(async (req, res) => {
     const { daysAgo } = req.query;
-    // console.log(this.state);
-    var startDateExists = true;
     var dbQuery = {};
-    if (startDateExists) {
+    console.log("salesend"+JSON.stringify(req.query))
+    if (Object.entries(req.query).length != 0 && req.query.constructor === Object) {
         var startDateFilter = moment().subtract(daysAgo, 'days');
         dbQuery = {
             "date": {

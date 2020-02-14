@@ -80926,19 +80926,19 @@ function (_Component) {
           lineNumber: 140
         },
         __self: this
-      }, "Loading...") : __jsx(react__WEBPACK_IMPORTED_MODULE_10___default.a.Fragment, null, __jsx("p", {
+      }, "Loading...") : __jsx(react__WEBPACK_IMPORTED_MODULE_10___default.a.Fragment, null, "Raw Recent Sales Data:", __jsx("code", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 142
+          lineNumber: 143
         },
         __self: this
-      }, "Raw Recent Sales Data: ", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(recentSalesByDateDict)), __jsx("select", {
+      }, _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(recentSalesByDateDict)), __jsx("select", {
         label: "Days Ago",
         name: "daysAgo",
         ref: "daysAgo",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 143
+          lineNumber: 144
         },
         __self: this
       }, [30, 60, 90].map(function (item) {
@@ -80947,7 +80947,7 @@ function (_Component) {
           value: item,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 146
+            lineNumber: 147
           },
           __self: this
         }, item + " Days Ago");
@@ -80957,14 +80957,14 @@ function (_Component) {
         onClick: this.updateDaysAgo,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 148
+          lineNumber: 149
         },
         __self: this
       }, "go"), __jsx("label", {
         htmlFor: "daysAgo",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 155
+          lineNumber: 156
         },
         __self: this
       }, "Days Ago"), __jsx("div", {
@@ -80974,7 +80974,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 156
+          lineNumber: 157
         },
         __self: this
       }, __jsx(_components_IMARecentSalesChart__WEBPACK_IMPORTED_MODULE_12__["default"], {
@@ -80984,14 +80984,14 @@ function (_Component) {
         }),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 157
+          lineNumber: 158
         },
         __self: this
       })))), __jsx(_components_forms_IMANewSaleForm__WEBPACK_IMPORTED_MODULE_14__["default"], {
         productList: this.state.productList,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 164
+          lineNumber: 165
         },
         __self: this
       }));
@@ -81021,7 +81021,7 @@ _defaultExport.__hash = "1755460400";
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!****************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5Cbhavi%5CDocuments%5CCoding%5CIMA-next%5Cpages%5Cindex.js ***!
   \****************************************************************************************************************************************/
@@ -81044,5 +81044,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

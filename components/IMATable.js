@@ -74,7 +74,7 @@ export default function IMATable({ columns, data, }) {// Use the useTable Hook t
                     return (
                         <tr {...row.getRowProps()}>
                             {row.cells.map(cell => {
-                                return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
+                                return <td {...cell.getCellProps()}>{JSON.stringify(cell).render("Cell")}</td>;
                             })}
                         </tr>
                     );

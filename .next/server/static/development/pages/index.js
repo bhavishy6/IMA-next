@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2664,19 +2664,19 @@ class Dashboard extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         lineNumber: 140
       },
       __self: this
-    }, "Loading...") : __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
+    }, "Loading...") : __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, "Raw Recent Sales Data:", __jsx("code", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 142
+        lineNumber: 143
       },
       __self: this
-    }, "Raw Recent Sales Data: ", JSON.stringify(recentSalesByDateDict)), __jsx("select", {
+    }, JSON.stringify(recentSalesByDateDict)), __jsx("select", {
       label: "Days Ago",
       name: "daysAgo",
       ref: "daysAgo",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 143
+        lineNumber: 144
       },
       __self: this
     }, [30, 60, 90].map(item => __jsx("option", {
@@ -2684,7 +2684,7 @@ class Dashboard extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       value: item,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 146
+        lineNumber: 147
       },
       __self: this
     }, item + " Days Ago"))), __jsx("button", {
@@ -2693,14 +2693,14 @@ class Dashboard extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       onClick: this.updateDaysAgo,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 148
+        lineNumber: 149
       },
       __self: this
     }, "go"), __jsx("label", {
       htmlFor: "daysAgo",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 155
+        lineNumber: 156
       },
       __self: this
     }, "Days Ago"), __jsx("div", {
@@ -2710,7 +2710,7 @@ class Dashboard extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 156
+        lineNumber: 157
       },
       __self: this
     }, __jsx(_components_IMARecentSalesChart__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2718,14 +2718,14 @@ class Dashboard extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       productList: productList.map(item => item.name),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 157
+        lineNumber: 158
       },
       __self: this
     })))), __jsx(_components_forms_IMANewSaleForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
       productList: this.state.productList,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 164
+        lineNumber: 165
       },
       __self: this
     }));
@@ -2753,7 +2753,7 @@ _defaultExport.__hash = "1755460400";
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

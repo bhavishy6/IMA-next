@@ -139,7 +139,8 @@ class Dashboard extends Component {
                     <h1>Dashboard</h1>
                     {isLoading ? <p>Loading...</p> :
                         <>
-                            <p>Raw Recent Sales Data: {JSON.stringify(recentSalesByDateDict)}</p>
+                            Raw Recent Sales Data:
+                            <code>{JSON.stringify(recentSalesByDateDict)}</code>
                             <select label="Days Ago" name="daysAgo" ref="daysAgo" >
                                 {/* <option defaultValue="" value="">howmany days ago</option> */}
 

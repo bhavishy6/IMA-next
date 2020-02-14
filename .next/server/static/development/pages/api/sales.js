@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -171,7 +171,9 @@ handler.get(async (req, res) => {
 });
 handler.post(async (req, res) => {
   let data = req.body;
-  data = JSON.parse(data);
+  data = JSON.parse(data); // console.log("Post: "+ data)
+
+  data.date = new Date(data.date);
   let doc = await req.db.collection('sales').insertOne(data, function (err, res) {
     if (err) throw err;
     console.log("1 document inserted");
@@ -181,7 +183,7 @@ handler.post(async (req, res) => {
 
 /***/ }),
 
-/***/ 7:
+/***/ 4:
 /*!**********************************!*\
   !*** multi ./pages/api/sales.js ***!
   \**********************************/

@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -488,6 +488,7 @@ function submitNewSale(productList, values) {
     totalPrice += product.price * product.qty;
   }, values.quantities);
   values.totalPrice = totalPrice;
+  values.date = moment(values.date).add(1, 'minutes').toDate();
   insertSaleIntoSales(values); //check if customer already exists by Name. if not add new with email if exists.
 
   values['quantities'].forEach((product, index) => {
@@ -553,7 +554,7 @@ const IMANewSaleForm = props => {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 128
+      lineNumber: 129
     },
     __self: undefined
   }, "Add New Sale"), __jsx(formik__WEBPACK_IMPORTED_MODULE_1__["Formik"], {
@@ -587,7 +588,7 @@ const IMANewSaleForm = props => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129
+      lineNumber: 130
     },
     __self: undefined
   }, ({
@@ -600,7 +601,7 @@ const IMANewSaleForm = props => {
     return __jsx(formik__WEBPACK_IMPORTED_MODULE_1__["Form"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 168
+        lineNumber: 169
       },
       __self: undefined
     }, __jsx(MyTextInput, {
@@ -610,7 +611,7 @@ const IMANewSaleForm = props => {
       placeholder: "John Doe",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 169
+        lineNumber: 170
       },
       __self: undefined
     }), __jsx(MyDateInput, {
@@ -620,7 +621,7 @@ const IMANewSaleForm = props => {
       placeholder: moment(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 175
+        lineNumber: 176
       },
       __self: undefined
     }), __jsx(MyTextInput, {
@@ -630,13 +631,13 @@ const IMANewSaleForm = props => {
       placeholder: "jane@doe.com",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 181
+        lineNumber: 182
       },
       __self: undefined
     }), __jsx("h3", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 187
+        lineNumber: 188
       },
       __self: undefined
     }, "Add Products Bought"), __jsx(formik__WEBPACK_IMPORTED_MODULE_1__["FieldArray"], {
@@ -644,7 +645,7 @@ const IMANewSaleForm = props => {
       render: arrayHelpers => __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 191
+          lineNumber: 192
         },
         __self: undefined
       }, values.quantities.length > 0 && values.quantities.map((product, index) => __jsx("div", {
@@ -652,21 +653,21 @@ const IMANewSaleForm = props => {
         key: index,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 194
+          lineNumber: 195
         },
         __self: undefined
       }, __jsx("div", {
         className: "col",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 195
+          lineNumber: 196
         },
         __self: undefined
       }, __jsx("label", {
         htmlFor: `quantities.${index}.name`,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 196
+          lineNumber: 197
         },
         __self: undefined
       }, "Name"), __jsx(MySelect, {
@@ -674,7 +675,7 @@ const IMANewSaleForm = props => {
         name: `quantities.${index}.name`,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 197
+          lineNumber: 198
         },
         __self: undefined
       }, __jsx("option", {
@@ -682,7 +683,7 @@ const IMANewSaleForm = props => {
         value: "",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 198
+          lineNumber: 199
         },
         __self: undefined
       }, "Select a product"), props.productList.map(product => __jsx("option", {
@@ -690,21 +691,21 @@ const IMANewSaleForm = props => {
         value: product.name,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 199
+          lineNumber: 200
         },
         __self: undefined
       }, product.name + " ($" + product.price + ")")))), __jsx("div", {
         className: "col",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 203
+          lineNumber: 204
         },
         __self: undefined
       }, __jsx("label", {
         htmlFor: `quantities.${index}.qty`,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 204
+          lineNumber: 205
         },
         __self: undefined
       }, " Quantity"), __jsx(MyTextInput, {
@@ -713,14 +714,14 @@ const IMANewSaleForm = props => {
         type: "number",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 205
+          lineNumber: 206
         },
         __self: undefined
       })), __jsx("div", {
         className: "col",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 211
+          lineNumber: 212
         },
         __self: undefined
       }, __jsx("button", {
@@ -729,7 +730,7 @@ const IMANewSaleForm = props => {
         onClick: () => arrayHelpers.remove(index),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 212
+          lineNumber: 213
         },
         __self: undefined
       }, "X")))), __jsx("button", {
@@ -741,20 +742,20 @@ const IMANewSaleForm = props => {
         }),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 222
+          lineNumber: 223
         },
         __self: undefined
       }, "Add Product")),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 188
+        lineNumber: 189
       },
       __self: undefined
     }), __jsx("button", {
       type: "submit",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 233
+        lineNumber: 234
       },
       __self: undefined
     }, "Submit"));
@@ -2511,10 +2512,10 @@ const Dashboard = props => {
 };
 
 Dashboard.getInitialProps = async ctx => {
-  const sales = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()('http://localhost:3000/api/sales?daysAgo=' + 30);
-  const salesjson = await sales.json();
-  console.log(`recent sales fetched. ${JSON.stringify(salesjson)}`);
-  var mostRecentSales = getMostRecentSalesDict(salesjson);
+  var mostRecentSales = [];
+  fetchRecentSales(30, response => {
+    mostRecentSales = getMostRecentSalesDict(response);
+  });
   const inventory = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()('http://localhost:3000/api/inventory');
   const inventoryjson = await inventory.json();
   var productList = inventoryjson;
@@ -2524,10 +2525,20 @@ Dashboard.getInitialProps = async ctx => {
   };
 };
 
+const fetchRecentSales = async (daysAgo, callback) => {
+  const sales = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()('http://localhost:3000/api/sales?daysAgo=' + daysAgo);
+  const salesjson = await sales.json().then(response => {
+    callback(response);
+  });
+  return salesjson;
+};
+
 function getMostRecentSalesDict(sales) {
+  console.log("mrd" + JSON.stringify(sales));
   var recentSales = {};
   sales.forEach((sale, index) => {
     var date = moment(sale["date"]).format("L");
+    console.log("checking dateL : " + date);
     var quantities = sale["quantities"];
 
     if (recentSales[date]) {
@@ -2544,6 +2555,7 @@ function getMostRecentSalesDict(sales) {
       recentSales[date] = sale["quantities"];
     }
   });
+  console.log(JSON.stringify(recentSales));
   return recentSales;
 }
 
@@ -2605,7 +2617,7 @@ _defaultExport.__hash = "1755460400";
 
 /***/ }),
 
-/***/ 8:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

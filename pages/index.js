@@ -26,22 +26,33 @@ const Dashboard = props => {
 };
 
 Dashboard.getInitialProps = async ctx => {
-    const sales = await fetch('http://localhost:3000/api/sales?daysAgo=' + 30)
-    const salesjson = await sales.json()
-    console.log(`recent sales fetched. ${JSON.stringify(salesjson)}`);
-    var mostRecentSales = getMostRecentSalesDict(salesjson)
+    var mostRecentSales = []
+    fetchRecentSales(30, (response) => {
+        mostRecentSales = getMostRecentSalesDict(response)
+    })
 
     const inventory = await fetch('http://localhost:3000/api/inventory')
     const inventoryjson = await inventory.json()
     var productList = inventoryjson
-    return { productList: productList,
-         recentSalesByDateDict: mostRecentSales };
+    return {
+        productList: productList,
+        recentSalesByDateDict: mostRecentSales
+    };
+}
+const fetchRecentSales = async (daysAgo, callback) => {
+    const sales = await fetch('http://localhost:3000/api/sales?daysAgo=' + daysAgo)
+    const salesjson = await sales.json().then(response => {
+        callback(response)
+    })
+    return salesjson;
 }
 
 function getMostRecentSalesDict(sales) {
+    console.log("mrd" + JSON.stringify(sales))
     var recentSales = {}
     sales.forEach((sale, index) => {
         var date = moment(sale["date"]).format("L")
+        console.log("checking dateL : " + date)
         var quantities = sale["quantities"]
         if (recentSales[date]) {
             console.log('this date exists' + date)
@@ -58,18 +69,19 @@ function getMostRecentSalesDict(sales) {
             recentSales[date] = sale["quantities"]
         }
     })
+    console.log(JSON.stringify(recentSales))
     return recentSales;
 };
 
 function getMostRecentSalesNIVO(recentSalesDict) {
     var recentSales = []
-    Object.keys(recentSalesDict).forEach(function(date, index) {
+    Object.keys(recentSalesDict).forEach(function (date, index) {
         var salesOnDate = recentSalesDict[date]
         recentSales.push({})
-        recentSales[index]['date']=date
+        recentSales[index]['date'] = date
         for (var i = 0; i < salesOnDate.length; i++) {
             recentSales[index][salesOnDate[i]['name']] = salesOnDate[i]['qty']
-            switch(salesOnDate[i]['name']) {
+            switch (salesOnDate[i]['name']) {
                 case 'Iron Sheet':
                     recentSales[index]['Iron SheetColor'] = "hsl(129, 70%, 50%)";
                     break;
@@ -78,7 +90,7 @@ function getMostRecentSalesNIVO(recentSalesDict) {
                     break;
             }
         }
-     });
+    });
     return recentSales;
 }
 

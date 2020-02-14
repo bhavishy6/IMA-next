@@ -63,6 +63,7 @@ function submitNewSale(productList, values) {
     totalPrice += product.price * product.qty;
   }, values.quantities );
   values.totalPrice = totalPrice;
+  values.date = moment(values.date).add(1, 'minutes').toDate()
   insertSaleIntoSales(values); 
   //check if customer already exists by Name. if not add new with email if exists.
   values['quantities'].forEach((product, index) => {
@@ -91,7 +92,7 @@ const insertSaleIntoSales = async (sale) => {
   const rest = await fetch('http://localhost:3000/api/sales', {
     method:'post',
     body: JSON.stringify(sale)
-  })
+    })
 }
 
 // Styled components ....

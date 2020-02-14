@@ -438,6 +438,7 @@ function submitNewSale(productList, values) {
     totalPrice += product.price * product.qty;
   }, values.quantities);
   values.totalPrice = totalPrice;
+  values.date = moment(values.date).add(1, 'minutes').toDate();
   insertSaleIntoSales(values); //check if customer already exists by Name. if not add new with email if exists.
 
   values['quantities'].forEach(function (product, index) {
@@ -519,7 +520,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_6___default.a.Fragment, null, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 128
+      lineNumber: 129
     },
     __self: this
   }, "Add New Sale"), __jsx(formik__WEBPACK_IMPORTED_MODULE_7__["Formik"], {
@@ -552,7 +553,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129
+      lineNumber: 130
     },
     __self: this
   }, function (_ref5) {
@@ -564,7 +565,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
     return __jsx(formik__WEBPACK_IMPORTED_MODULE_7__["Form"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 168
+        lineNumber: 169
       },
       __self: this
     }, __jsx(MyTextInput, {
@@ -574,7 +575,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
       placeholder: "John Doe",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 169
+        lineNumber: 170
       },
       __self: this
     }), __jsx(MyDateInput, {
@@ -584,7 +585,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
       placeholder: moment(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 175
+        lineNumber: 176
       },
       __self: this
     }), __jsx(MyTextInput, {
@@ -594,13 +595,13 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
       placeholder: "jane@doe.com",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 181
+        lineNumber: 182
       },
       __self: this
     }), __jsx("h3", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 187
+        lineNumber: 188
       },
       __self: this
     }, "Add Products Bought"), __jsx(formik__WEBPACK_IMPORTED_MODULE_7__["FieldArray"], {
@@ -609,7 +610,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
         return __jsx("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 191
+            lineNumber: 192
           },
           __self: this
         }, values.quantities.length > 0 && values.quantities.map(function (product, index) {
@@ -618,21 +619,21 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             key: index,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 194
+              lineNumber: 195
             },
             __self: this
           }, __jsx("div", {
             className: "col",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 195
+              lineNumber: 196
             },
             __self: this
           }, __jsx("label", {
             htmlFor: "quantities.".concat(index, ".name"),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 196
+              lineNumber: 197
             },
             __self: this
           }, "Name"), __jsx(MySelect, {
@@ -640,7 +641,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             name: "quantities.".concat(index, ".name"),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 197
+              lineNumber: 198
             },
             __self: this
           }, __jsx("option", {
@@ -648,7 +649,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             value: "",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 198
+              lineNumber: 199
             },
             __self: this
           }, "Select a product"), props.productList.map(function (product) {
@@ -657,7 +658,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
               value: product.name,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 199
+                lineNumber: 200
               },
               __self: this
             }, product.name + " ($" + product.price + ")");
@@ -665,14 +666,14 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             className: "col",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 203
+              lineNumber: 204
             },
             __self: this
           }, __jsx("label", {
             htmlFor: "quantities.".concat(index, ".qty"),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 204
+              lineNumber: 205
             },
             __self: this
           }, " Quantity"), __jsx(MyTextInput, {
@@ -681,14 +682,14 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             type: "number",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 205
+              lineNumber: 206
             },
             __self: this
           })), __jsx("div", {
             className: "col",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 211
+              lineNumber: 212
             },
             __self: this
           }, __jsx("button", {
@@ -699,7 +700,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 212
+              lineNumber: 213
             },
             __self: this
           }, "X")));
@@ -714,21 +715,21 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 222
+            lineNumber: 223
           },
           __self: this
         }, "Add Product"));
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 188
+        lineNumber: 189
       },
       __self: this
     }), __jsx("button", {
       type: "submit",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 233
+        lineNumber: 234
       },
       __self: this
     }, "Submit"));
@@ -80436,32 +80437,24 @@ var Dashboard = function Dashboard(props) {
 };
 
 Dashboard.getInitialProps = function _callee(ctx) {
-  var sales, salesjson, mostRecentSales, inventory, inventoryjson, productList;
+  var mostRecentSales, inventory, inventoryjson, productList;
   return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          _context.next = 2;
-          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.awrap(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_6___default()('http://localhost:3000/api/sales?daysAgo=' + 30));
-
-        case 2:
-          sales = _context.sent;
-          _context.next = 5;
-          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.awrap(sales.json());
-
-        case 5:
-          salesjson = _context.sent;
-          console.log("recent sales fetched. ".concat(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default()(salesjson)));
-          mostRecentSales = getMostRecentSalesDict(salesjson);
-          _context.next = 10;
+          mostRecentSales = [];
+          fetchRecentSales(30, function (response) {
+            mostRecentSales = getMostRecentSalesDict(response);
+          });
+          _context.next = 4;
           return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.awrap(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_6___default()('http://localhost:3000/api/inventory'));
 
-        case 10:
+        case 4:
           inventory = _context.sent;
-          _context.next = 13;
+          _context.next = 7;
           return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.awrap(inventory.json());
 
-        case 13:
+        case 7:
           inventoryjson = _context.sent;
           productList = inventoryjson;
           return _context.abrupt("return", {
@@ -80469,7 +80462,7 @@ Dashboard.getInitialProps = function _callee(ctx) {
             recentSalesByDateDict: mostRecentSales
           });
 
-        case 16:
+        case 10:
         case "end":
           return _context.stop();
       }
@@ -80477,10 +80470,40 @@ Dashboard.getInitialProps = function _callee(ctx) {
   });
 };
 
+var fetchRecentSales = function fetchRecentSales(daysAgo, callback) {
+  var sales, salesjson;
+  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.async(function fetchRecentSales$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.next = 2;
+          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.awrap(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_6___default()('http://localhost:3000/api/sales?daysAgo=' + daysAgo));
+
+        case 2:
+          sales = _context2.sent;
+          _context2.next = 5;
+          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.awrap(sales.json().then(function (response) {
+            callback(response);
+          }));
+
+        case 5:
+          salesjson = _context2.sent;
+          return _context2.abrupt("return", salesjson);
+
+        case 7:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  });
+};
+
 function getMostRecentSalesDict(sales) {
+  console.log("mrd" + _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default()(sales));
   var recentSales = {};
   sales.forEach(function (sale, index) {
     var date = moment(sale["date"]).format("L");
+    console.log("checking dateL : " + date);
     var quantities = sale["quantities"];
 
     if (recentSales[date]) {
@@ -80497,6 +80520,7 @@ function getMostRecentSalesDict(sales) {
       recentSales[date] = sale["quantities"];
     }
   });
+  console.log(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default()(recentSales));
   return recentSales;
 }
 
@@ -80560,7 +80584,7 @@ _defaultExport.__hash = "1755460400";
 
 /***/ }),
 
-/***/ 3:
+/***/ 1:
 /*!****************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5Cbhavi%5CDocuments%5CCoding%5CIMA-next%5Cpages%5Cindex.js ***!
   \****************************************************************************************************************************************/
@@ -80583,5 +80607,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

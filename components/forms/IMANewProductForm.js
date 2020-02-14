@@ -71,6 +71,7 @@ const IMAEditProductForm = props => {
             submitNewProduct(props.productList, values);
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
+            window.location.reload(false);
           }, 400);
         }}
       >

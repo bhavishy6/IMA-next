@@ -52,7 +52,7 @@ class Dashboard extends Component {
             console.log("checking dateL : " + date)
             var quantities = sale["quantities"]
             if (recentSales[date]) {
-                console.log('this date exists' + date)
+                console.log('this date exists' + JSON.stringify(recentSales[date]))
                 recentSales[date].forEach((product, index) => {
                     var sameProduct = this.findProductInQuantities(product["name"], quantities)
                     if (sameProduct === null) {
@@ -61,12 +61,21 @@ class Dashboard extends Component {
                         product["qty"] += sameProduct["qty"]
                     }
                 }, recentSales[date])
+                var datesProducts = recentSales[date].map(item => item.name)
+                quantities.forEach((product, index) => {
+                    console.log(name + "checking product name: " + product['name'])
+                    if (datesProducts.includes(product['name'])) {
+
+                    } else {
+                        recentSales[date].push(product);
+                    }
+                });
             } else {
                 //this date does not yet exist in recentSales
                 recentSales[date] = sale["quantities"]
             }
         })
-        console.log(JSON.stringify(recentSales))
+        console.log("transfmr" + JSON.stringify(recentSales))
         return recentSales;
     };
 
@@ -81,13 +90,16 @@ class Dashboard extends Component {
                 recentSales[index][salesOnDate[i]['name']] = salesOnDate[i]['qty']
                 switch (salesOnDate[i]['name']) {
                     case 'Iron Sheet':
-                        recentSales[index]['Iron SheetColor'] = "hsl(129, 70%, 50%)";
+                        recentSales[index][salesOnDate[i]['name']+'Color'] = "hsl(129, 70%, 50%)";
                         break;
                     case 'Copper Sheet':
-                        recentSales[index]['Copper SheetColor'] = "hsl(77, 70%, 50%)";
+                        recentSales[index][salesOnDate[i]['name']+'Color'] = "hsl(77, 70%, 50%)";
                         break;
                     case 'Free Product':
-                        recentSales[index]['Free ProductColor'] = "hsl(150, 70%, 50%)";
+                        recentSales[index][salesOnDate[i]['name']+'Color'] = "hsl(150, 70%, 50%)";
+                        break;
+                    case 'Free':
+                        recentSales[index][salesOnDate[i]['name']+'Color'] = "hsl(90, 70%, 50%)";
                         break;
                 }
             }
@@ -97,6 +109,7 @@ class Dashboard extends Component {
     }
 
     findProductInQuantities(name, quantities) {
+        console.log('proudct list' + JSON.stringify(quantities))
         var foundProduct = null;
         quantities.forEach((product, index) => {
             console.log(name + "checking product name: " + product['name'])
@@ -108,7 +121,6 @@ class Dashboard extends Component {
     }
 
     updateDaysAgo = (event) => {
-        console.log("select" + this.refs.daysAgo.value)
         var salesDict = []
 
         var _asyncMostRecentSales = this.fetchRecentSales(this.refs.daysAgo.value).then(externalData => {
@@ -119,16 +131,15 @@ class Dashboard extends Component {
     }
 
     render() {
-        const { isLoading, recentSalesByDateDict } = this.state
+        const { isLoading, recentSalesByDateDict, productList } = this.state
+        console.log("doct " + JSON.stringify(recentSalesByDateDict))
         return (
             <IMALayout>
                 <div >
-                    form to add new sale
-                    form to add new customer
-                    form to add new inventory item1
+                    <h1>Dashboard</h1>
                     {isLoading ? <p>Loading...</p> :
                         <>
-                            <p>Raw Data: {JSON.stringify(recentSalesByDateDict)}</p>
+                            <p>Raw Recent Sales Data: {JSON.stringify(recentSalesByDateDict)}</p>
                             <select label="Days Ago" name="daysAgo" ref="daysAgo" >
                                 {/* <option defaultValue="" value="">howmany days ago</option> */}
 
@@ -142,8 +153,8 @@ class Dashboard extends Component {
                                 go
                             </button>
                             <label htmlFor="daysAgo">Days Ago</label>
-                            <div style={{ height: 500 + "px", width: 500 + 'px' }}>
-                                <IMARecentSalesChart data={recentSalesByDateDict} />
+                            <div style={{ height: 30 + "em", width: 75 + 'em' }}>
+                                <IMARecentSalesChart data={recentSalesByDateDict}  productList={productList.map(item => item.name)}/>
                             </div>
                         </>
 

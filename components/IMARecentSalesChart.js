@@ -4,10 +4,10 @@ import { ResponsiveBar } from '@nivo/bar'
 // no chart will be rendered.
 // website examples showcase many properties,
 // you'll often use just a few of them.
-const IMARecentSalesChart = ({ data /* see data tab */ }) => (
+const IMARecentSalesChart = ({ data, productList /* see data tab */ }) => (
     <ResponsiveBar
         data={data}
-        keys={['Iron Sheet', 'Copper Sheet', 'Free Product']}
+        keys={productList}
         indexBy="date"
         margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
         padding={0.3}

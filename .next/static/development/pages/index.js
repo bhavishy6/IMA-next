@@ -145,10 +145,11 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 // you'll often use just a few of them.
 
 var IMARecentSalesChart = function IMARecentSalesChart(_ref) {
-  var data = _ref.data;
+  var data = _ref.data,
+      productList = _ref.productList;
   return __jsx(_nivo_bar__WEBPACK_IMPORTED_MODULE_1__["ResponsiveBar"], {
     data: data,
-    keys: ['Iron Sheet', 'Copper Sheet', 'Free Product'],
+    keys: productList,
     indexBy: "date",
     margin: {
       top: 50,
@@ -540,7 +541,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
       name: val.name
     };
   })));
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, __jsx("h1", {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 62
@@ -572,6 +573,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
         submitNewSale(props.productList, values);
         alert(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(values, null, 2));
         setSubmitting(false);
+        window.location.reload(false);
       }, 400);
     },
     __source: {
@@ -588,7 +590,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
     return __jsx(formik__WEBPACK_IMPORTED_MODULE_3__["Form"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 102
+        lineNumber: 103
       },
       __self: this
     }, __jsx(_IMAInputs__WEBPACK_IMPORTED_MODULE_5__["MyTextInput"], {
@@ -598,7 +600,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
       placeholder: "John Doe",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 103
+        lineNumber: 104
       },
       __self: this
     }), __jsx(_IMAInputs__WEBPACK_IMPORTED_MODULE_5__["MyDateInput"], {
@@ -608,7 +610,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
       placeholder: moment(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 109
+        lineNumber: 110
       },
       __self: this
     }), __jsx(_IMAInputs__WEBPACK_IMPORTED_MODULE_5__["MyTextInput"], {
@@ -618,13 +620,13 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
       placeholder: "jane@doe.com",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 115
+        lineNumber: 116
       },
       __self: this
     }), __jsx("h3", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 121
+        lineNumber: 122
       },
       __self: this
     }, "Add Products Bought"), __jsx(formik__WEBPACK_IMPORTED_MODULE_3__["FieldArray"], {
@@ -633,7 +635,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
         return __jsx("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 125
+            lineNumber: 126
           },
           __self: this
         }, values.quantities.length > 0 && values.quantities.map(function (product, index) {
@@ -642,21 +644,21 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             key: index,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 128
+              lineNumber: 129
             },
             __self: this
           }, __jsx("div", {
             className: "col",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 129
+              lineNumber: 130
             },
             __self: this
           }, __jsx("label", {
             htmlFor: "quantities.".concat(index, ".name"),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 130
+              lineNumber: 131
             },
             __self: this
           }, "Name"), __jsx(_IMAInputs__WEBPACK_IMPORTED_MODULE_5__["MySelect"], {
@@ -664,7 +666,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             name: "quantities.".concat(index, ".name"),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 131
+              lineNumber: 132
             },
             __self: this
           }, __jsx("option", {
@@ -672,7 +674,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             value: "",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 132
+              lineNumber: 133
             },
             __self: this
           }, "Select a product"), props.productList.map(function (product) {
@@ -681,7 +683,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
               value: product.name,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 133
+                lineNumber: 134
               },
               __self: this
             }, product.name + " ($" + product.price + ")");
@@ -689,14 +691,14 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             className: "col",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 137
+              lineNumber: 138
             },
             __self: this
           }, __jsx("label", {
             htmlFor: "quantities.".concat(index, ".qty"),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 138
+              lineNumber: 139
             },
             __self: this
           }, " Quantity"), __jsx(_IMAInputs__WEBPACK_IMPORTED_MODULE_5__["MyTextInput"], {
@@ -705,14 +707,14 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             type: "number",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 139
+              lineNumber: 140
             },
             __self: this
           })), __jsx("div", {
             className: "col",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 145
+              lineNumber: 146
             },
             __self: this
           }, __jsx("button", {
@@ -723,7 +725,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 146
+              lineNumber: 147
             },
             __self: this
           }, "X")));
@@ -738,21 +740,21 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 156
+            lineNumber: 157
           },
           __self: this
         }, "Add Product"));
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 122
+        lineNumber: 123
       },
       __self: this
     }), __jsx("button", {
       type: "submit",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 167
+        lineNumber: 168
       },
       __self: this
     }, "Submit"));
@@ -80697,7 +80699,6 @@ function (_Component) {
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "updateDaysAgo", function (event) {
-      console.log("select" + _this.refs.daysAgo.value);
       var salesDict = [];
 
       var _asyncMostRecentSales = _this.fetchRecentSales(_this.refs.daysAgo.value).then(function (externalData) {
@@ -80814,7 +80815,7 @@ function (_Component) {
         var quantities = sale["quantities"];
 
         if (recentSales[date]) {
-          console.log('this date exists' + date);
+          console.log('this date exists' + _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(recentSales[date]));
           recentSales[date].forEach(function (product, index) {
             var sameProduct = _this3.findProductInQuantities(product["name"], quantities);
 
@@ -80822,12 +80823,22 @@ function (_Component) {
               product["qty"] += sameProduct["qty"];
             }
           }, recentSales[date]);
+          var datesProducts = recentSales[date].map(function (item) {
+            return item.name;
+          });
+          quantities.forEach(function (product, index) {
+            console.log(name + "checking product name: " + product['name']);
+
+            if (datesProducts.includes(product['name'])) {} else {
+              recentSales[date].push(product);
+            }
+          });
         } else {
           //this date does not yet exist in recentSales
           recentSales[date] = sale["quantities"];
         }
       });
-      console.log(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(recentSales));
+      console.log("transfmr" + _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(recentSales));
       return recentSales;
     }
   }, {
@@ -80846,15 +80857,19 @@ function (_Component) {
 
           switch (salesOnDate[i]['name']) {
             case 'Iron Sheet':
-              recentSales[index]['Iron SheetColor'] = "hsl(129, 70%, 50%)";
+              recentSales[index][salesOnDate[i]['name'] + 'Color'] = "hsl(129, 70%, 50%)";
               break;
 
             case 'Copper Sheet':
-              recentSales[index]['Copper SheetColor'] = "hsl(77, 70%, 50%)";
+              recentSales[index][salesOnDate[i]['name'] + 'Color'] = "hsl(77, 70%, 50%)";
               break;
 
             case 'Free Product':
-              recentSales[index]['Free ProductColor'] = "hsl(150, 70%, 50%)";
+              recentSales[index][salesOnDate[i]['name'] + 'Color'] = "hsl(150, 70%, 50%)";
+              break;
+
+            case 'Free':
+              recentSales[index][salesOnDate[i]['name'] + 'Color'] = "hsl(90, 70%, 50%)";
               break;
           }
         }
@@ -80868,6 +80883,7 @@ function (_Component) {
   }, {
     key: "findProductInQuantities",
     value: function findProductInQuantities(name, quantities) {
+      console.log('proudct list' + _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(quantities));
       var foundProduct = null;
       quantities.forEach(function (product, index) {
         console.log(name + "checking product name: " + product['name']);
@@ -80883,38 +80899,46 @@ function (_Component) {
     value: function render() {
       var _this$state = this.state,
           isLoading = _this$state.isLoading,
-          recentSalesByDateDict = _this$state.recentSalesByDateDict;
+          recentSalesByDateDict = _this$state.recentSalesByDateDict,
+          productList = _this$state.productList;
+      console.log("doct " + _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(recentSalesByDateDict));
       return __jsx(_components_IMALayout__WEBPACK_IMPORTED_MODULE_11__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 124
+          lineNumber: 137
         },
         __self: this
       }, __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 125
+          lineNumber: 138
         },
         __self: this
-      }, "form to add new sale form to add new customer form to add new inventory item1", isLoading ? __jsx("p", {
+      }, __jsx("h1", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 129
+          lineNumber: 139
+        },
+        __self: this
+      }, "Dashboard"), isLoading ? __jsx("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 140
         },
         __self: this
       }, "Loading...") : __jsx(react__WEBPACK_IMPORTED_MODULE_10___default.a.Fragment, null, __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 131
+          lineNumber: 142
         },
         __self: this
-      }, "Raw Data: ", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(recentSalesByDateDict)), __jsx("select", {
+      }, "Raw Recent Sales Data: ", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(recentSalesByDateDict)), __jsx("select", {
         label: "Days Ago",
         name: "daysAgo",
         ref: "daysAgo",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 132
+          lineNumber: 143
         },
         __self: this
       }, [30, 60, 90].map(function (item) {
@@ -80923,7 +80947,7 @@ function (_Component) {
           value: item,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 135
+            lineNumber: 146
           },
           __self: this
         }, item + " Days Ago");
@@ -80933,38 +80957,41 @@ function (_Component) {
         onClick: this.updateDaysAgo,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 137
+          lineNumber: 148
         },
         __self: this
       }, "go"), __jsx("label", {
         htmlFor: "daysAgo",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 144
+          lineNumber: 155
         },
         __self: this
       }, "Days Ago"), __jsx("div", {
         style: {
-          height: 500 + "px",
-          width: 500 + 'px'
+          height: 30 + "em",
+          width: 75 + 'em'
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 145
+          lineNumber: 156
         },
         __self: this
       }, __jsx(_components_IMARecentSalesChart__WEBPACK_IMPORTED_MODULE_12__["default"], {
         data: recentSalesByDateDict,
+        productList: productList.map(function (item) {
+          return item.name;
+        }),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 146
+          lineNumber: 157
         },
         __self: this
       })))), __jsx(_components_forms_IMANewSaleForm__WEBPACK_IMPORTED_MODULE_14__["default"], {
         productList: this.state.productList,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 153
+          lineNumber: 164
         },
         __self: this
       }));

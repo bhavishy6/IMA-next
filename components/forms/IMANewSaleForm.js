@@ -59,7 +59,7 @@ const IMANewSaleForm = props => {
     })));
   return (
     <>
-      <h1>Add New Sale</h1>
+      <h2>Add New Sale</h2>
       <Formik
         initialValues={{
           customerName: "",
@@ -94,6 +94,7 @@ const IMANewSaleForm = props => {
             submitNewSale(props.productList, values);
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
+            window.location.reload(false);
           }, 400);
         }}
       >

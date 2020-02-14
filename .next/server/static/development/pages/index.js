@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -240,7 +240,7 @@ const IMARecentSalesChart = ({
 
 }) => __jsx(_nivo_bar__WEBPACK_IMPORTED_MODULE_1__["ResponsiveBar"], {
   data: data,
-  keys: ['Iron Sheet', 'Copper Sheet'],
+  keys: ['Iron Sheet', 'Copper Sheet', 'Free Product'],
   indexBy: "date",
   margin: {
     top: 50,
@@ -342,6 +342,158 @@ const IMARecentSalesChart = ({
 
 /***/ }),
 
+/***/ "./components/forms/IMAInputs.js":
+/*!***************************************!*\
+  !*** ./components/forms/IMAInputs.js ***!
+  \***************************************/
+/*! exports provided: StyledSelect, StyledErrorMessage, StyledLabel, MyTextInput, MySelect, MyDateInput */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StyledSelect", function() { return StyledSelect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StyledErrorMessage", function() { return StyledErrorMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StyledLabel", function() { return StyledLabel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyTextInput", function() { return MyTextInput; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MySelect", function() { return MySelect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyDateInput", function() { return MyDateInput; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! formik */ "formik");
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(formik__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @emotion/styled */ "@emotion/styled");
+/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_emotion_styled__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "C:\\Users\\bhavi\\Documents\\Coding\\IMA-next\\components\\forms\\IMAInputs.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
+ // Styled components ....
+
+const StyledSelect = _emotion_styled__WEBPACK_IMPORTED_MODULE_2___default.a.select`
+    color: var(--blue);
+  `;
+const StyledErrorMessage = _emotion_styled__WEBPACK_IMPORTED_MODULE_2___default.a.div`
+    font-size: 12px;
+    color: var(--red-600);
+    width: 400px;
+    margin-top: 0.25rem;
+    &:before {
+      content: "❌ ";
+      font-size: 10px;
+    }
+    @media (prefers-color-scheme: dark) {
+      color: var(--red-300);
+    }
+  `;
+const StyledLabel = _emotion_styled__WEBPACK_IMPORTED_MODULE_2___default.a.label`
+    margin-top: 1rem;
+  `;
+const MyTextInput = (_ref) => {
+  let {
+    label
+  } = _ref,
+      props = _objectWithoutProperties(_ref, ["label"]);
+
+  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+  // which we can spread on <input> and alse replace ErrorMessage entirely.
+  const [field, meta] = Object(formik__WEBPACK_IMPORTED_MODULE_1__["useField"])(props);
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("label", {
+    htmlFor: props.id || props.name,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35
+    },
+    __self: undefined
+  }, label), __jsx("input", _extends({
+    className: "text-input"
+  }, field, props, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: undefined
+  })), meta.touched && meta.error ? __jsx("div", {
+    className: "error",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38
+    },
+    __self: undefined
+  }, meta.error) : null);
+};
+const MySelect = (_ref2) => {
+  let {
+    label
+  } = _ref2,
+      props = _objectWithoutProperties(_ref2, ["label"]);
+
+  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+  // which we can spread on <input> and alse replace ErrorMessage entirely.
+  const [field, meta] = Object(formik__WEBPACK_IMPORTED_MODULE_1__["useField"])(props);
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(StyledLabel, {
+    htmlFor: props.id || props.name,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50
+    },
+    __self: undefined
+  }, label), __jsx(StyledSelect, _extends({}, field, props, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51
+    },
+    __self: undefined
+  })), meta.touched && meta.error ? __jsx(StyledErrorMessage, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, meta.error) : null);
+};
+const MyDateInput = (_ref3) => {
+  let {
+    label
+  } = _ref3,
+      props = _objectWithoutProperties(_ref3, ["label"]);
+
+  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+  // which we can spread on <input> and alse replace ErrorMessage entirely.
+  const [field, meta] = Object(formik__WEBPACK_IMPORTED_MODULE_1__["useField"])(props);
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("label", {
+    htmlFor: props.id || props.name,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: undefined
+  }, label), __jsx("input", _extends({
+    className: "text-input"
+  }, field, props, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66
+    },
+    __self: undefined
+  })), meta.touched && meta.error ? __jsx("div", {
+    className: "error",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68
+    },
+    __self: undefined
+  }, meta.error) : null);
+};
+
+/***/ }),
+
 /***/ "./components/forms/IMANewSaleForm.js":
 /*!********************************************!*\
   !*** ./components/forms/IMANewSaleForm.js ***!
@@ -357,18 +509,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(formik__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! yup */ "yup");
 /* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(yup__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @emotion/styled */ "@emotion/styled");
-/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_emotion_styled__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _IMAInputs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./IMAInputs */ "./components/forms/IMAInputs.js");
 var _jsxFileName = "C:\\Users\\bhavi\\Documents\\Coding\\IMA-next\\components\\forms\\IMANewSaleForm.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
 
 
 
@@ -376,105 +520,6 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 var moment = __webpack_require__(/*! moment */ "moment");
 
 moment().format('L');
-
-const MyTextInput = (_ref) => {
-  let {
-    label
-  } = _ref,
-      props = _objectWithoutProperties(_ref, ["label"]);
-
-  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-  // which we can spread on <input> and alse replace ErrorMessage entirely.
-  const [field, meta] = Object(formik__WEBPACK_IMPORTED_MODULE_1__["useField"])(props);
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("label", {
-    htmlFor: props.id || props.name,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 15
-    },
-    __self: undefined
-  }, label), __jsx("input", _extends({
-    className: "text-input"
-  }, field, props, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16
-    },
-    __self: undefined
-  })), meta.touched && meta.error ? __jsx("div", {
-    className: "error",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 18
-    },
-    __self: undefined
-  }, meta.error) : null);
-};
-
-const MySelect = (_ref2) => {
-  let {
-    label
-  } = _ref2,
-      props = _objectWithoutProperties(_ref2, ["label"]);
-
-  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-  // which we can spread on <input> and alse replace ErrorMessage entirely.
-  const [field, meta] = Object(formik__WEBPACK_IMPORTED_MODULE_1__["useField"])(props);
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(StyledLabel, {
-    htmlFor: props.id || props.name,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 30
-    },
-    __self: undefined
-  }, label), __jsx(StyledSelect, _extends({}, field, props, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 31
-    },
-    __self: undefined
-  })), meta.touched && meta.error ? __jsx(StyledErrorMessage, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 33
-    },
-    __self: undefined
-  }, meta.error) : null);
-};
-
-const MyDateInput = (_ref3) => {
-  let {
-    label
-  } = _ref3,
-      props = _objectWithoutProperties(_ref3, ["label"]);
-
-  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-  // which we can spread on <input> and alse replace ErrorMessage entirely.
-  const [field, meta] = Object(formik__WEBPACK_IMPORTED_MODULE_1__["useField"])(props);
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("label", {
-    htmlFor: props.id || props.name,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 45
-    },
-    __self: undefined
-  }, label), __jsx("input", _extends({
-    className: "text-input"
-  }, field, props, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 46
-    },
-    __self: undefined
-  })), meta.touched && meta.error ? __jsx("div", {
-    className: "error",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 48
-    },
-    __self: undefined
-  }, meta.error) : null);
-};
 
 function submitNewSale(productList, values) {
   var totalPrice = 0;
@@ -522,28 +567,7 @@ const insertSaleIntoSales = async sale => {
     method: 'post',
     body: JSON.stringify(sale)
   });
-}; // Styled components ....
-
-
-const StyledSelect = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.select`
-    color: var(--blue);
-  `;
-const StyledErrorMessage = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.div`
-    font-size: 12px;
-    color: var(--red-600);
-    width: 400px;
-    margin-top: 0.25rem;
-    &:before {
-      content: "❌ ";
-      font-size: 10px;
-    }
-    @media (prefers-color-scheme: dark) {
-      color: var(--red-300);
-    }
-  `;
-const StyledLabel = _emotion_styled__WEBPACK_IMPORTED_MODULE_3___default.a.label`
-    margin-top: 1rem;
-  `;
+};
 
 const IMANewSaleForm = props => {
   console.log(JSON.stringify(props.productList.map(function (val, index) {
@@ -554,7 +578,7 @@ const IMANewSaleForm = props => {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129
+      lineNumber: 62
     },
     __self: undefined
   }, "Add New Sale"), __jsx(formik__WEBPACK_IMPORTED_MODULE_1__["Formik"], {
@@ -588,7 +612,7 @@ const IMANewSaleForm = props => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 130
+      lineNumber: 63
     },
     __self: undefined
   }, ({
@@ -601,43 +625,43 @@ const IMANewSaleForm = props => {
     return __jsx(formik__WEBPACK_IMPORTED_MODULE_1__["Form"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 169
+        lineNumber: 102
       },
       __self: undefined
-    }, __jsx(MyTextInput, {
+    }, __jsx(_IMAInputs__WEBPACK_IMPORTED_MODULE_3__["MyTextInput"], {
       label: "Customer Name",
       name: "customerName",
       type: "text",
       placeholder: "John Doe",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 170
+        lineNumber: 103
       },
       __self: undefined
-    }), __jsx(MyDateInput, {
+    }), __jsx(_IMAInputs__WEBPACK_IMPORTED_MODULE_3__["MyDateInput"], {
       label: "Date of Sale",
       name: "date",
       type: "date",
       placeholder: moment(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 176
+        lineNumber: 109
       },
       __self: undefined
-    }), __jsx(MyTextInput, {
+    }), __jsx(_IMAInputs__WEBPACK_IMPORTED_MODULE_3__["MyTextInput"], {
       label: "Customer Email Address",
       name: "customerEmail",
       type: "email",
       placeholder: "jane@doe.com",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 182
+        lineNumber: 115
       },
       __self: undefined
     }), __jsx("h3", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 188
+        lineNumber: 121
       },
       __self: undefined
     }, "Add Products Bought"), __jsx(formik__WEBPACK_IMPORTED_MODULE_1__["FieldArray"], {
@@ -645,7 +669,7 @@ const IMANewSaleForm = props => {
       render: arrayHelpers => __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 192
+          lineNumber: 125
         },
         __self: undefined
       }, values.quantities.length > 0 && values.quantities.map((product, index) => __jsx("div", {
@@ -653,37 +677,37 @@ const IMANewSaleForm = props => {
         key: index,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 195
+          lineNumber: 128
         },
         __self: undefined
       }, __jsx("div", {
         className: "col",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 196
+          lineNumber: 129
         },
         __self: undefined
       }, __jsx("label", {
         htmlFor: `quantities.${index}.name`,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 197
+          lineNumber: 130
         },
         __self: undefined
-      }, "Name"), __jsx(MySelect, {
+      }, "Name"), __jsx(_IMAInputs__WEBPACK_IMPORTED_MODULE_3__["MySelect"], {
         label: "Product Name",
         name: `quantities.${index}.name`,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 198
+          lineNumber: 131
         },
         __self: undefined
       }, __jsx("option", {
-        selected: "selected",
+        defaultValue: "",
         value: "",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 199
+          lineNumber: 132
         },
         __self: undefined
       }, "Select a product"), props.productList.map(product => __jsx("option", {
@@ -691,37 +715,37 @@ const IMANewSaleForm = props => {
         value: product.name,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 200
+          lineNumber: 133
         },
         __self: undefined
       }, product.name + " ($" + product.price + ")")))), __jsx("div", {
         className: "col",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 204
+          lineNumber: 137
         },
         __self: undefined
       }, __jsx("label", {
         htmlFor: `quantities.${index}.qty`,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 205
+          lineNumber: 138
         },
         __self: undefined
-      }, " Quantity"), __jsx(MyTextInput, {
+      }, " Quantity"), __jsx(_IMAInputs__WEBPACK_IMPORTED_MODULE_3__["MyTextInput"], {
         name: `quantities.${index}.qty`,
         placeholder: "99999",
         type: "number",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 206
+          lineNumber: 139
         },
         __self: undefined
       })), __jsx("div", {
         className: "col",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 212
+          lineNumber: 145
         },
         __self: undefined
       }, __jsx("button", {
@@ -730,7 +754,7 @@ const IMANewSaleForm = props => {
         onClick: () => arrayHelpers.remove(index),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 213
+          lineNumber: 146
         },
         __self: undefined
       }, "X")))), __jsx("button", {
@@ -742,20 +766,20 @@ const IMANewSaleForm = props => {
         }),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 223
+          lineNumber: 156
         },
         __self: undefined
       }, "Add Product")),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 189
+        lineNumber: 122
       },
       __self: undefined
     }), __jsx("button", {
       type: "submit",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 234
+        lineNumber: 167
       },
       __self: undefined
     }, "Submit"));
@@ -2457,6 +2481,10 @@ var _jsxFileName = "C:\\Users\\bhavi\\Documents\\Coding\\IMA-next\\pages\\index.
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
 
 
 
@@ -2465,136 +2493,179 @@ var moment = __webpack_require__(/*! moment */ "moment");
 
 moment().format('L');
 
-const Dashboard = props => {
-  return __jsx(_components_IMALayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11
-    },
-    __self: undefined
-  }, __jsx("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12
-    },
-    __self: undefined
-  }, "form to add new sale form to add new customer form to add new inventory item1", __jsx("p", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16
-    },
-    __self: undefined
-  }, "recent sales since 30 days ago: ", JSON.stringify(props.recentSalesByDateDict)), __jsx("div", {
-    style: {
-      height: 500 + "px",
-      width: 500 + 'px'
-    },
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 17
-    },
-    __self: undefined
-  }, __jsx(_components_IMARecentSalesChart__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    data: getMostRecentSalesNIVO(props.recentSalesByDateDict),
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 18
-    },
-    __self: undefined
-  }))), __jsx(_components_forms_IMANewSaleForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    productList: props.productList,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 22
-    },
-    __self: undefined
-  }));
-};
+class Dashboard extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor(...args) {
+    super(...args);
 
-Dashboard.getInitialProps = async ctx => {
-  var mostRecentSales = [];
-  fetchRecentSales(30, response => {
-    mostRecentSales = getMostRecentSalesDict(response);
-  });
-  const inventory = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()('http://localhost:3000/api/inventory');
-  const inventoryjson = await inventory.json();
-  var productList = inventoryjson;
-  return {
-    productList: productList,
-    recentSalesByDateDict: mostRecentSales
-  };
-};
+    _defineProperty(this, "state", {
+      productList: [],
+      recentSalesByDateDict: [],
+      isLoading: true
+    });
+  }
 
-const fetchRecentSales = async (daysAgo, callback) => {
-  const sales = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()('http://localhost:3000/api/sales?daysAgo=' + daysAgo);
-  const salesjson = await sales.json().then(response => {
-    callback(response);
-  });
-  return salesjson;
-};
+  async fetchInventory() {
+    const inventory = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()('http://localhost:3000/api/inventory');
+    const inventoryjson = await inventory.json();
+    return inventoryjson;
+  }
 
-function getMostRecentSalesDict(sales) {
-  console.log("mrd" + JSON.stringify(sales));
-  var recentSales = {};
-  sales.forEach((sale, index) => {
-    var date = moment(sale["date"]).format("L");
-    console.log("checking dateL : " + date);
-    var quantities = sale["quantities"];
+  async fetchRecentSales(daysAgo) {
+    const sales = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_3___default()('http://localhost:3000/api/sales?daysAgo=' + daysAgo);
+    const salesjson = await sales.json();
+    return salesjson;
+  }
 
-    if (recentSales[date]) {
-      console.log('this date exists' + date);
-      recentSales[date].forEach((product, index) => {
-        var sameProduct = findProductInQuantities(product["name"], quantities);
+  async componentDidMount() {
+    var salesDict = [];
 
-        if (sameProduct === null) {} else {
-          product["qty"] += sameProduct["qty"];
-        }
-      }, recentSales[date]);
-    } else {
-      //this date does not yet exist in recentSales
-      recentSales[date] = sale["quantities"];
-    }
-  });
-  console.log(JSON.stringify(recentSales));
-  return recentSales;
-}
+    var _asyncMostRecentSales = this.fetchRecentSales(30).then(externalData => {
+      salesDict = this.getMostRecentSalesDict(externalData);
+      this.setState({
+        recentSalesByDateDict: this.getMostRecentSalesNIVO(salesDict)
+      });
+    });
 
-;
+    console.log("cdm mrs" + JSON.stringify(salesDict));
+    var productList = [];
 
-function getMostRecentSalesNIVO(recentSalesDict) {
-  var recentSales = [];
-  Object.keys(recentSalesDict).forEach(function (date, index) {
-    var salesOnDate = recentSalesDict[date];
-    recentSales.push({});
-    recentSales[index]['date'] = date;
+    var _asyncInventory = this.fetchInventory().then(externalData => {
+      productList = externalData;
+    });
 
-    for (var i = 0; i < salesOnDate.length; i++) {
-      recentSales[index][salesOnDate[i]['name']] = salesOnDate[i]['qty'];
+    this.setState({
+      productList: productList,
+      recentSalesByDateDict: salesDict
+    });
+  }
 
-      switch (salesOnDate[i]['name']) {
-        case 'Iron Sheet':
-          recentSales[index]['Iron SheetColor'] = "hsl(129, 70%, 50%)";
-          break;
+  getMostRecentSalesDict(sales) {
+    console.log("mrd" + JSON.stringify(sales));
+    var recentSales = {};
+    sales.forEach((sale, index) => {
+      var date = moment(sale["date"]).format("L");
+      console.log("checking dateL : " + date);
+      var quantities = sale["quantities"];
 
-        case 'Copper Sheet':
-          recentSales[index]['Copper SheetColor'] = "hsl(77, 70%, 50%)";
-          break;
+      if (recentSales[date]) {
+        console.log('this date exists' + date);
+        recentSales[date].forEach((product, index) => {
+          var sameProduct = this.findProductInQuantities(product["name"], quantities);
+
+          if (sameProduct === null) {} else {
+            product["qty"] += sameProduct["qty"];
+          }
+        }, recentSales[date]);
+      } else {
+        //this date does not yet exist in recentSales
+        recentSales[date] = sale["quantities"];
       }
-    }
-  });
-  return recentSales;
-}
+    });
+    console.log(JSON.stringify(recentSales));
+    return recentSales;
+  }
 
-function findProductInQuantities(name, quantities) {
-  var foundProduct = null;
-  quantities.forEach((product, index) => {
-    console.log(name + "checking product name: " + product['name']);
+  getMostRecentSalesNIVO(recentSalesDict) {
+    console.log("nivo" + JSON.stringify(recentSalesDict));
+    var recentSales = [];
+    Object.keys(recentSalesDict).forEach(function (date, index) {
+      var salesOnDate = recentSalesDict[date];
+      recentSales.push({});
+      recentSales[index]['date'] = date;
 
-    if (name == product['name']) {
-      foundProduct = product;
-    }
-  });
-  return foundProduct;
+      for (var i = 0; i < salesOnDate.length; i++) {
+        recentSales[index][salesOnDate[i]['name']] = salesOnDate[i]['qty'];
+
+        switch (salesOnDate[i]['name']) {
+          case 'Iron Sheet':
+            recentSales[index]['Iron SheetColor'] = "hsl(129, 70%, 50%)";
+            break;
+
+          case 'Copper Sheet':
+            recentSales[index]['Copper SheetColor'] = "hsl(77, 70%, 50%)";
+            break;
+
+          case 'Free Product':
+            recentSales[index]['Free ProductColor'] = "hsl(150, 70%, 50%)";
+            break;
+        }
+      }
+    });
+    this.setState({
+      'isLoading': false
+    });
+    return recentSales;
+  }
+
+  findProductInQuantities(name, quantities) {
+    var foundProduct = null;
+    quantities.forEach((product, index) => {
+      console.log(name + "checking product name: " + product['name']);
+
+      if (name == product['name']) {
+        foundProduct = product;
+      }
+    });
+    return foundProduct;
+  }
+
+  render() {
+    const {
+      isLoading,
+      recentSalesByDateDict
+    } = this.state;
+    console.log(JSON.stringify(recentSalesByDateDict));
+    return __jsx(_components_IMALayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 116
+      },
+      __self: this
+    }, __jsx("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 117
+      },
+      __self: this
+    }, "form to add new sale form to add new customer form to add new inventory item1", isLoading ? __jsx("p", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 121
+      },
+      __self: this
+    }, "Loading...") : __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 123
+      },
+      __self: this
+    }, "recent sales since 30 days ago: ", JSON.stringify(recentSalesByDateDict)), __jsx("div", {
+      style: {
+        height: 500 + "px",
+        width: 500 + 'px'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 125
+      },
+      __self: this
+    }, __jsx(_components_IMARecentSalesChart__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      data: recentSalesByDateDict,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 126
+      },
+      __self: this
+    })))), __jsx(_components_forms_IMANewSaleForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      productList: this.state.productList,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 133
+      },
+      __self: this
+    }));
+  }
+
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Dashboard);
@@ -2617,7 +2688,7 @@ _defaultExport.__hash = "1755460400";
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

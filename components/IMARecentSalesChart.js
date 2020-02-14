@@ -7,7 +7,7 @@ import { ResponsiveBar } from '@nivo/bar'
 const IMARecentSalesChart = ({ data /* see data tab */ }) => (
     <ResponsiveBar
         data={data}
-        keys={['Iron Sheet', 'Copper Sheet']}
+        keys={['Iron Sheet', 'Copper Sheet', 'Free Product']}
         indexBy="date"
         margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
         padding={0.3}

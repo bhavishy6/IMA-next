@@ -148,7 +148,7 @@ var IMARecentSalesChart = function IMARecentSalesChart(_ref) {
   var data = _ref.data;
   return __jsx(_nivo_bar__WEBPACK_IMPORTED_MODULE_1__["ResponsiveBar"], {
     data: data,
-    keys: ['Iron Sheet', 'Copper Sheet'],
+    keys: ['Iron Sheet', 'Copper Sheet', 'Free Product'],
     indexBy: "date",
     margin: {
       top: 50,
@@ -251,40 +251,39 @@ var IMARecentSalesChart = function IMARecentSalesChart(_ref) {
 
 /***/ }),
 
-/***/ "./components/forms/IMANewSaleForm.js":
-/*!********************************************!*\
-  !*** ./components/forms/IMANewSaleForm.js ***!
-  \********************************************/
-/*! exports provided: default */
+/***/ "./components/forms/IMAInputs.js":
+/*!***************************************!*\
+  !*** ./components/forms/IMAInputs.js ***!
+  \***************************************/
+/*! exports provided: StyledSelect, StyledErrorMessage, StyledLabel, MyTextInput, MySelect, MyDateInput */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
-/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.js");
-/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectWithoutProperties.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! yup */ "./node_modules/yup/es/index.js");
-/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/styled.browser.esm.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StyledSelect", function() { return StyledSelect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StyledErrorMessage", function() { return StyledErrorMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StyledLabel", function() { return StyledLabel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyTextInput", function() { return MyTextInput; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MySelect", function() { return MySelect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyDateInput", function() { return MyDateInput; });
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/styled.browser.esm.js");
 
 
 
 
+var _jsxFileName = "C:\\Users\\bhavi\\Documents\\Coding\\IMA-next\\components\\forms\\IMAInputs.js";
 
-
-var _jsxFileName = "C:\\Users\\bhavi\\Documents\\Coding\\IMA-next\\components\\forms\\IMANewSaleForm.js";
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement;
 
 function _templateObject3() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    margin-top: 1rem;\n  "]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_3__["default"])(["\n    margin-top: 1rem;\n  "]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -294,7 +293,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    font-size: 12px;\n    color: var(--red-600);\n    width: 400px;\n    margin-top: 0.25rem;\n    &:before {\n      content: \"\u274C \";\n      font-size: 10px;\n    }\n    @media (prefers-color-scheme: dark) {\n      color: var(--red-300);\n    }\n  "]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_3__["default"])(["\n    font-size: 12px;\n    color: var(--red-600);\n    width: 400px;\n    margin-top: 0.25rem;\n    &:before {\n      content: \"\u274C \";\n      font-size: 10px;\n    }\n    @media (prefers-color-scheme: dark) {\n      color: var(--red-300);\n    }\n  "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -304,7 +303,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    color: var(--blue);\n  "]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_3__["default"])(["\n    color: var(--blue);\n  "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -314,117 +313,146 @@ function _templateObject() {
 }
 
 
+ // Styled components ....
+
+var StyledSelect = _emotion_styled__WEBPACK_IMPORTED_MODULE_6__["default"].select(_templateObject());
+var StyledErrorMessage = _emotion_styled__WEBPACK_IMPORTED_MODULE_6__["default"].div(_templateObject2());
+var StyledLabel = _emotion_styled__WEBPACK_IMPORTED_MODULE_6__["default"].label(_templateObject3());
+var MyTextInput = function MyTextInput(_ref) {
+  var label = _ref.label,
+      props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__["default"])(_ref, ["label"]);
+
+  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+  // which we can spread on <input> and alse replace ErrorMessage entirely.
+  var _useField = Object(formik__WEBPACK_IMPORTED_MODULE_5__["useField"])(props),
+      _useField2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useField, 2),
+      field = _useField2[0],
+      meta = _useField2[1];
+
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_4___default.a.Fragment, null, __jsx("label", {
+    htmlFor: props.id || props.name,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35
+    },
+    __self: this
+  }, label), __jsx("input", Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    className: "text-input"
+  }, field, props, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: this
+  })), meta.touched && meta.error ? __jsx("div", {
+    className: "error",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38
+    },
+    __self: this
+  }, meta.error) : null);
+};
+var MySelect = function MySelect(_ref2) {
+  var label = _ref2.label,
+      props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__["default"])(_ref2, ["label"]);
+
+  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+  // which we can spread on <input> and alse replace ErrorMessage entirely.
+  var _useField3 = Object(formik__WEBPACK_IMPORTED_MODULE_5__["useField"])(props),
+      _useField4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useField3, 2),
+      field = _useField4[0],
+      meta = _useField4[1];
+
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_4___default.a.Fragment, null, __jsx(StyledLabel, {
+    htmlFor: props.id || props.name,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50
+    },
+    __self: this
+  }, label), __jsx(StyledSelect, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, field, props, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51
+    },
+    __self: this
+  })), meta.touched && meta.error ? __jsx(StyledErrorMessage, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: this
+  }, meta.error) : null);
+};
+var MyDateInput = function MyDateInput(_ref3) {
+  var label = _ref3.label,
+      props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__["default"])(_ref3, ["label"]);
+
+  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+  // which we can spread on <input> and alse replace ErrorMessage entirely.
+  var _useField5 = Object(formik__WEBPACK_IMPORTED_MODULE_5__["useField"])(props),
+      _useField6 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useField5, 2),
+      field = _useField6[0],
+      meta = _useField6[1];
+
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_4___default.a.Fragment, null, __jsx("label", {
+    htmlFor: props.id || props.name,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: this
+  }, label), __jsx("input", Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    className: "text-input"
+  }, field, props, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66
+    },
+    __self: this
+  })), meta.touched && meta.error ? __jsx("div", {
+    className: "error",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68
+    },
+    __self: this
+  }, meta.error) : null);
+};
+
+/***/ }),
+
+/***/ "./components/forms/IMANewSaleForm.js":
+/*!********************************************!*\
+  !*** ./components/forms/IMANewSaleForm.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.js");
+/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! yup */ "./node_modules/yup/es/index.js");
+/* harmony import */ var _IMAInputs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./IMAInputs */ "./components/forms/IMAInputs.js");
+
+
+var _jsxFileName = "C:\\Users\\bhavi\\Documents\\Coding\\IMA-next\\components\\forms\\IMANewSaleForm.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
+
 
 
 
 var moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 
 moment().format('L');
-
-var MyTextInput = function MyTextInput(_ref) {
-  var label = _ref.label,
-      props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_5__["default"])(_ref, ["label"]);
-
-  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-  // which we can spread on <input> and alse replace ErrorMessage entirely.
-  var _useField = Object(formik__WEBPACK_IMPORTED_MODULE_7__["useField"])(props),
-      _useField2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__["default"])(_useField, 2),
-      field = _useField2[0],
-      meta = _useField2[1];
-
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_6___default.a.Fragment, null, __jsx("label", {
-    htmlFor: props.id || props.name,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 15
-    },
-    __self: this
-  }, label), __jsx("input", Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({
-    className: "text-input"
-  }, field, props, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16
-    },
-    __self: this
-  })), meta.touched && meta.error ? __jsx("div", {
-    className: "error",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 18
-    },
-    __self: this
-  }, meta.error) : null);
-};
-
-var MySelect = function MySelect(_ref2) {
-  var label = _ref2.label,
-      props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_5__["default"])(_ref2, ["label"]);
-
-  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-  // which we can spread on <input> and alse replace ErrorMessage entirely.
-  var _useField3 = Object(formik__WEBPACK_IMPORTED_MODULE_7__["useField"])(props),
-      _useField4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__["default"])(_useField3, 2),
-      field = _useField4[0],
-      meta = _useField4[1];
-
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_6___default.a.Fragment, null, __jsx(StyledLabel, {
-    htmlFor: props.id || props.name,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 30
-    },
-    __self: this
-  }, label), __jsx(StyledSelect, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({}, field, props, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 31
-    },
-    __self: this
-  })), meta.touched && meta.error ? __jsx(StyledErrorMessage, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 33
-    },
-    __self: this
-  }, meta.error) : null);
-};
-
-var MyDateInput = function MyDateInput(_ref3) {
-  var label = _ref3.label,
-      props = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_5__["default"])(_ref3, ["label"]);
-
-  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-  // which we can spread on <input> and alse replace ErrorMessage entirely.
-  var _useField5 = Object(formik__WEBPACK_IMPORTED_MODULE_7__["useField"])(props),
-      _useField6 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_4__["default"])(_useField5, 2),
-      field = _useField6[0],
-      meta = _useField6[1];
-
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_6___default.a.Fragment, null, __jsx("label", {
-    htmlFor: props.id || props.name,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 45
-    },
-    __self: this
-  }, label), __jsx("input", Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({
-    className: "text-input"
-  }, field, props, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 46
-    },
-    __self: this
-  })), meta.touched && meta.error ? __jsx("div", {
-    className: "error",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 48
-    },
-    __self: this
-  }, meta.error) : null);
-};
 
 function submitNewSale(productList, values) {
   var totalPrice = 0;
@@ -458,14 +486,14 @@ function getProductFromProductList(productList, productName) {
 
 var updateProductInInventory = function updateProductInInventory(name, qty, productPrice) {
   var res;
-  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.async(function updateProductInInventory$(_context) {
+  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function updateProductInInventory$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.awrap(fetch('http://localhost:3000/api/inventoryUpdate', {
+          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(fetch('http://localhost:3000/api/inventoryUpdate', {
             method: 'post',
-            body: _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default()({
+            body: _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()({
               name: name,
               qty: qty,
               price: productPrice
@@ -485,14 +513,14 @@ var updateProductInInventory = function updateProductInInventory(name, qty, prod
 
 var insertSaleIntoSales = function insertSaleIntoSales(sale) {
   var rest;
-  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.async(function insertSaleIntoSales$(_context2) {
+  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function insertSaleIntoSales$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.awrap(fetch('http://localhost:3000/api/sales', {
+          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(fetch('http://localhost:3000/api/sales', {
             method: 'post',
-            body: _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default()(sale)
+            body: _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(sale)
           }));
 
         case 2:
@@ -504,26 +532,21 @@ var insertSaleIntoSales = function insertSaleIntoSales(sale) {
       }
     }
   });
-}; // Styled components ....
-
-
-var StyledSelect = _emotion_styled__WEBPACK_IMPORTED_MODULE_9__["default"].select(_templateObject());
-var StyledErrorMessage = _emotion_styled__WEBPACK_IMPORTED_MODULE_9__["default"].div(_templateObject2());
-var StyledLabel = _emotion_styled__WEBPACK_IMPORTED_MODULE_9__["default"].label(_templateObject3());
+};
 
 var IMANewSaleForm = function IMANewSaleForm(props) {
-  console.log(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default()(props.productList.map(function (val, index) {
+  console.log(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(props.productList.map(function (val, index) {
     return {
       name: val.name
     };
   })));
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_6___default.a.Fragment, null, __jsx("h1", {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129
+      lineNumber: 62
     },
     __self: this
-  }, "Add New Sale"), __jsx(formik__WEBPACK_IMPORTED_MODULE_7__["Formik"], {
+  }, "Add New Sale"), __jsx(formik__WEBPACK_IMPORTED_MODULE_3__["Formik"], {
     initialValues: {
       customerName: "",
       date: "",
@@ -531,86 +554,86 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
       quantities: [{}] // added for our select
 
     },
-    validationSchema: yup__WEBPACK_IMPORTED_MODULE_8__["object"]({
-      customerName: yup__WEBPACK_IMPORTED_MODULE_8__["string"]().max(15, "Must be 15 characters or less").required("Required"),
-      date: yup__WEBPACK_IMPORTED_MODULE_8__["date"]().required("Required"),
-      customerEmail: yup__WEBPACK_IMPORTED_MODULE_8__["string"]().email("Invalid email address"),
-      quantities: yup__WEBPACK_IMPORTED_MODULE_8__["array"]().of(yup__WEBPACK_IMPORTED_MODULE_8__["object"]().shape({
-        name: yup__WEBPACK_IMPORTED_MODULE_8__["string"]().required('Required'),
-        qty: yup__WEBPACK_IMPORTED_MODULE_8__["number"]().min(0, 'Must be atleast 1').required('Required')
+    validationSchema: yup__WEBPACK_IMPORTED_MODULE_4__["object"]({
+      customerName: yup__WEBPACK_IMPORTED_MODULE_4__["string"]().max(15, "Must be 15 characters or less").required("Required"),
+      date: yup__WEBPACK_IMPORTED_MODULE_4__["date"]().required("Required"),
+      customerEmail: yup__WEBPACK_IMPORTED_MODULE_4__["string"]().email("Invalid email address"),
+      quantities: yup__WEBPACK_IMPORTED_MODULE_4__["array"]().of(yup__WEBPACK_IMPORTED_MODULE_4__["object"]().shape({
+        name: yup__WEBPACK_IMPORTED_MODULE_4__["string"]().required('Required'),
+        qty: yup__WEBPACK_IMPORTED_MODULE_4__["number"]().min(0, 'Must be atleast 1').required('Required')
       })).required('Must have products sold').min(1, 'Minimum of 1 product')
     }),
-    onSubmit: function onSubmit(values, _ref4) {
-      var setSubmitting = _ref4.setSubmitting,
-          resetForm = _ref4.resetForm;
-      console.log("new sale submitted" + _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default()(values));
+    onSubmit: function onSubmit(values, _ref) {
+      var setSubmitting = _ref.setSubmitting,
+          resetForm = _ref.resetForm;
+      console.log("new sale submitted" + _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(values));
       resetForm({});
       setTimeout(function () {
         submitNewSale(props.productList, values);
-        alert(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default()(values, null, 2));
+        alert(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(values, null, 2));
         setSubmitting(false);
       }, 400);
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 130
+      lineNumber: 63
     },
     __self: this
-  }, function (_ref5) {
-    var values = _ref5.values,
-        errors = _ref5.errors,
-        touched = _ref5.touched,
-        handleReset = _ref5.handleReset,
-        setFieldValue = _ref5.setFieldValue;
-    return __jsx(formik__WEBPACK_IMPORTED_MODULE_7__["Form"], {
+  }, function (_ref2) {
+    var values = _ref2.values,
+        errors = _ref2.errors,
+        touched = _ref2.touched,
+        handleReset = _ref2.handleReset,
+        setFieldValue = _ref2.setFieldValue;
+    return __jsx(formik__WEBPACK_IMPORTED_MODULE_3__["Form"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 169
+        lineNumber: 102
       },
       __self: this
-    }, __jsx(MyTextInput, {
+    }, __jsx(_IMAInputs__WEBPACK_IMPORTED_MODULE_5__["MyTextInput"], {
       label: "Customer Name",
       name: "customerName",
       type: "text",
       placeholder: "John Doe",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 170
+        lineNumber: 103
       },
       __self: this
-    }), __jsx(MyDateInput, {
+    }), __jsx(_IMAInputs__WEBPACK_IMPORTED_MODULE_5__["MyDateInput"], {
       label: "Date of Sale",
       name: "date",
       type: "date",
       placeholder: moment(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 176
+        lineNumber: 109
       },
       __self: this
-    }), __jsx(MyTextInput, {
+    }), __jsx(_IMAInputs__WEBPACK_IMPORTED_MODULE_5__["MyTextInput"], {
       label: "Customer Email Address",
       name: "customerEmail",
       type: "email",
       placeholder: "jane@doe.com",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 182
+        lineNumber: 115
       },
       __self: this
     }), __jsx("h3", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 188
+        lineNumber: 121
       },
       __self: this
-    }, "Add Products Bought"), __jsx(formik__WEBPACK_IMPORTED_MODULE_7__["FieldArray"], {
+    }, "Add Products Bought"), __jsx(formik__WEBPACK_IMPORTED_MODULE_3__["FieldArray"], {
       name: "quantities",
       render: function render(arrayHelpers) {
         return __jsx("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 192
+            lineNumber: 125
           },
           __self: this
         }, values.quantities.length > 0 && values.quantities.map(function (product, index) {
@@ -619,37 +642,37 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             key: index,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 195
+              lineNumber: 128
             },
             __self: this
           }, __jsx("div", {
             className: "col",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 196
+              lineNumber: 129
             },
             __self: this
           }, __jsx("label", {
             htmlFor: "quantities.".concat(index, ".name"),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 197
+              lineNumber: 130
             },
             __self: this
-          }, "Name"), __jsx(MySelect, {
+          }, "Name"), __jsx(_IMAInputs__WEBPACK_IMPORTED_MODULE_5__["MySelect"], {
             label: "Product Name",
             name: "quantities.".concat(index, ".name"),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 198
+              lineNumber: 131
             },
             __self: this
           }, __jsx("option", {
-            selected: "selected",
+            defaultValue: "",
             value: "",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 199
+              lineNumber: 132
             },
             __self: this
           }, "Select a product"), props.productList.map(function (product) {
@@ -658,7 +681,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
               value: product.name,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 200
+                lineNumber: 133
               },
               __self: this
             }, product.name + " ($" + product.price + ")");
@@ -666,30 +689,30 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             className: "col",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 204
+              lineNumber: 137
             },
             __self: this
           }, __jsx("label", {
             htmlFor: "quantities.".concat(index, ".qty"),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 205
+              lineNumber: 138
             },
             __self: this
-          }, " Quantity"), __jsx(MyTextInput, {
+          }, " Quantity"), __jsx(_IMAInputs__WEBPACK_IMPORTED_MODULE_5__["MyTextInput"], {
             name: "quantities.".concat(index, ".qty"),
             placeholder: "99999",
             type: "number",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 206
+              lineNumber: 139
             },
             __self: this
           })), __jsx("div", {
             className: "col",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 212
+              lineNumber: 145
             },
             __self: this
           }, __jsx("button", {
@@ -700,7 +723,7 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 213
+              lineNumber: 146
             },
             __self: this
           }, "X")));
@@ -715,21 +738,21 @@ var IMANewSaleForm = function IMANewSaleForm(props) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 223
+            lineNumber: 156
           },
           __self: this
         }, "Add Product"));
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 189
+        lineNumber: 122
       },
       __self: this
     }), __jsx("button", {
       type: "submit",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 234
+        lineNumber: 167
       },
       __self: this
     }, "Submit"));
@@ -1107,6 +1130,107 @@ function _arrayWithHoles(arr) {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _assertThisInitialized; });
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _classCallCheck; });
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _createClass; });
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+
+    _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _defineProperty; });
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js":
 /*!********************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js ***!
@@ -1136,6 +1260,63 @@ function _extends() {
   };
 
   return _extends.apply(this, arguments);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _getPrototypeOf; });
+/* harmony import */ var _core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/get-prototype-of */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-prototype-of.js");
+/* harmony import */ var _core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../core-js/object/set-prototype-of */ "./node_modules/@babel/runtime-corejs2/core-js/object/set-prototype-of.js");
+/* harmony import */ var _core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = _core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_1___default.a ? _core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_0___default.a : function _getPrototypeOf(o) {
+    return o.__proto__ || _core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_0___default()(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _inherits; });
+/* harmony import */ var _core_js_object_create__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/create */ "./node_modules/@babel/runtime-corejs2/core-js/object/create.js");
+/* harmony import */ var _core_js_object_create__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_create__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _setPrototypeOf__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./setPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/setPrototypeOf.js");
+
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = _core_js_object_create__WEBPACK_IMPORTED_MODULE_0___default()(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) Object(_setPrototypeOf__WEBPACK_IMPORTED_MODULE_1__["default"])(subClass, superClass);
 }
 
 /***/ }),
@@ -1272,6 +1453,54 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _possibleConstructorReturn; });
+/* harmony import */ var _helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helpers/esm/typeof */ "./node_modules/@babel/runtime-corejs2/helpers/esm/typeof.js");
+/* harmony import */ var _assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
+
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (Object(_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_0__["default"])(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return Object(_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(self);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/setPrototypeOf.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/setPrototypeOf.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _setPrototypeOf; });
+/* harmony import */ var _core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/set-prototype-of */ "./node_modules/@babel/runtime-corejs2/core-js/object/set-prototype-of.js");
+/* harmony import */ var _core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_0__);
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = _core_js_object_set_prototype_of__WEBPACK_IMPORTED_MODULE_0___default.a || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js":
 /*!**************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js ***!
@@ -1320,6 +1549,41 @@ function _taggedTemplateLiteral(strings, raw) {
       value: _core_js_object_freeze__WEBPACK_IMPORTED_MODULE_1___default()(raw)
     }
   }));
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/typeof.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/typeof.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _typeof; });
+/* harmony import */ var _core_js_symbol_iterator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/symbol/iterator */ "./node_modules/@babel/runtime-corejs2/core-js/symbol/iterator.js");
+/* harmony import */ var _core_js_symbol_iterator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_symbol_iterator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core_js_symbol__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../core-js/symbol */ "./node_modules/@babel/runtime-corejs2/core-js/symbol.js");
+/* harmony import */ var _core_js_symbol__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_core_js_symbol__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function _typeof2(obj) { if (typeof _core_js_symbol__WEBPACK_IMPORTED_MODULE_1___default.a === "function" && typeof _core_js_symbol_iterator__WEBPACK_IMPORTED_MODULE_0___default.a === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof _core_js_symbol__WEBPACK_IMPORTED_MODULE_1___default.a === "function" && obj.constructor === _core_js_symbol__WEBPACK_IMPORTED_MODULE_1___default.a && obj !== _core_js_symbol__WEBPACK_IMPORTED_MODULE_1___default.a.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
+
+function _typeof(obj) {
+  if (typeof _core_js_symbol__WEBPACK_IMPORTED_MODULE_1___default.a === "function" && _typeof2(_core_js_symbol_iterator__WEBPACK_IMPORTED_MODULE_0___default.a) === "symbol") {
+    _typeof = function _typeof(obj) {
+      return _typeof2(obj);
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof _core_js_symbol__WEBPACK_IMPORTED_MODULE_1___default.a === "function" && obj.constructor === _core_js_symbol__WEBPACK_IMPORTED_MODULE_1___default.a && obj !== _core_js_symbol__WEBPACK_IMPORTED_MODULE_1___default.a.prototype ? "symbol" : _typeof2(obj);
+    };
+  }
+
+  return _typeof(obj);
 }
 
 /***/ }),
@@ -80364,23 +80628,38 @@ function sortFields(fields, excludes) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
 /* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.js");
-/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _components_IMALayout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/IMALayout */ "./components/IMALayout.js");
-/* harmony import */ var _components_IMARecentSalesChart__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/IMARecentSalesChart */ "./components/IMARecentSalesChart.js");
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! isomorphic-unfetch */ "./node_modules/next/dist/build/polyfills/fetch/index.js");
-/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _components_forms_IMANewSaleForm__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/forms/IMANewSaleForm */ "./components/forms/IMANewSaleForm.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.js");
+/* harmony import */ var _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _components_IMALayout__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/IMALayout */ "./components/IMALayout.js");
+/* harmony import */ var _components_IMARecentSalesChart__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/IMARecentSalesChart */ "./components/IMARecentSalesChart.js");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! isomorphic-unfetch */ "./node_modules/next/dist/build/polyfills/fetch/index.js");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _components_forms_IMANewSaleForm__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/forms/IMANewSaleForm */ "./components/forms/IMANewSaleForm.js");
+
+
+
+
+
+
+
 
 
 
 var _jsxFileName = "C:\\Users\\bhavi\\Documents\\Coding\\IMA-next\\pages\\index.js";
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement;
+
 
 
 
@@ -80390,179 +80669,261 @@ var moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js"
 
 moment().format('L');
 
-var Dashboard = function Dashboard(props) {
-  return __jsx(_components_IMALayout__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11
-    },
-    __self: this
-  }, __jsx("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12
-    },
-    __self: this
-  }, "form to add new sale form to add new customer form to add new inventory item1", __jsx("p", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16
-    },
-    __self: this
-  }, "recent sales since 30 days ago: ", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default()(props.recentSalesByDateDict)), __jsx("div", {
-    style: {
-      height: 500 + "px",
-      width: 500 + 'px'
-    },
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 17
-    },
-    __self: this
-  }, __jsx(_components_IMARecentSalesChart__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    data: getMostRecentSalesNIVO(props.recentSalesByDateDict),
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 18
-    },
-    __self: this
-  }))), __jsx(_components_forms_IMANewSaleForm__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    productList: props.productList,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 22
-    },
-    __self: this
-  }));
-};
+var Dashboard =
+/*#__PURE__*/
+function (_Component) {
+  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_8__["default"])(Dashboard, _Component);
 
-Dashboard.getInitialProps = function _callee(ctx) {
-  var mostRecentSales, inventory, inventoryjson, productList;
-  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.async(function _callee$(_context) {
-    while (1) {
-      switch (_context.prev = _context.next) {
-        case 0:
-          mostRecentSales = [];
-          fetchRecentSales(30, function (response) {
-            mostRecentSales = getMostRecentSalesDict(response);
-          });
-          _context.next = 4;
-          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.awrap(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_6___default()('http://localhost:3000/api/inventory'));
+  function Dashboard() {
+    var _getPrototypeOf2;
 
-        case 4:
-          inventory = _context.sent;
-          _context.next = 7;
-          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.awrap(inventory.json());
+    var _this;
 
-        case 7:
-          inventoryjson = _context.sent;
-          productList = inventoryjson;
-          return _context.abrupt("return", {
-            productList: productList,
-            recentSalesByDateDict: mostRecentSales
-          });
+    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Dashboard);
 
-        case 10:
-        case "end":
-          return _context.stop();
-      }
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
     }
-  });
-};
 
-var fetchRecentSales = function fetchRecentSales(daysAgo, callback) {
-  var sales, salesjson;
-  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.async(function fetchRecentSales$(_context2) {
-    while (1) {
-      switch (_context2.prev = _context2.next) {
-        case 0:
-          _context2.next = 2;
-          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.awrap(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_6___default()('http://localhost:3000/api/sales?daysAgo=' + daysAgo));
+    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(Dashboard)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-        case 2:
-          sales = _context2.sent;
-          _context2.next = 5;
-          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.awrap(sales.json().then(function (response) {
-            callback(response);
-          }));
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "state", {
+      productList: [],
+      recentSalesByDateDict: [],
+      isLoading: true
+    });
 
-        case 5:
-          salesjson = _context2.sent;
-          return _context2.abrupt("return", salesjson);
+    return _this;
+  }
 
-        case 7:
-        case "end":
-          return _context2.stop();
-      }
-    }
-  });
-};
+  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Dashboard, [{
+    key: "fetchInventory",
+    value: function fetchInventory() {
+      var inventory, inventoryjson;
+      return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.async(function fetchInventory$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.awrap(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_13___default()('http://localhost:3000/api/inventory'));
 
-function getMostRecentSalesDict(sales) {
-  console.log("mrd" + _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default()(sales));
-  var recentSales = {};
-  sales.forEach(function (sale, index) {
-    var date = moment(sale["date"]).format("L");
-    console.log("checking dateL : " + date);
-    var quantities = sale["quantities"];
+            case 2:
+              inventory = _context.sent;
+              _context.next = 5;
+              return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.awrap(inventory.json());
 
-    if (recentSales[date]) {
-      console.log('this date exists' + date);
-      recentSales[date].forEach(function (product, index) {
-        var sameProduct = findProductInQuantities(product["name"], quantities);
+            case 5:
+              inventoryjson = _context.sent;
+              return _context.abrupt("return", inventoryjson);
 
-        if (sameProduct === null) {} else {
-          product["qty"] += sameProduct["qty"];
+            case 7:
+            case "end":
+              return _context.stop();
+          }
         }
-      }, recentSales[date]);
-    } else {
-      //this date does not yet exist in recentSales
-      recentSales[date] = sale["quantities"];
+      });
     }
-  });
-  console.log(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default()(recentSales));
-  return recentSales;
-}
+  }, {
+    key: "fetchRecentSales",
+    value: function fetchRecentSales(daysAgo) {
+      var sales, salesjson;
+      return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.async(function fetchRecentSales$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.awrap(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_13___default()('http://localhost:3000/api/sales?daysAgo=' + daysAgo));
 
-;
+            case 2:
+              sales = _context2.sent;
+              _context2.next = 5;
+              return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.awrap(sales.json());
 
-function getMostRecentSalesNIVO(recentSalesDict) {
-  var recentSales = [];
+            case 5:
+              salesjson = _context2.sent;
+              return _context2.abrupt("return", salesjson);
 
-  _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0___default()(recentSalesDict).forEach(function (date, index) {
-    var salesOnDate = recentSalesDict[date];
-    recentSales.push({});
-    recentSales[index]['date'] = date;
-
-    for (var i = 0; i < salesOnDate.length; i++) {
-      recentSales[index][salesOnDate[i]['name']] = salesOnDate[i]['qty'];
-
-      switch (salesOnDate[i]['name']) {
-        case 'Iron Sheet':
-          recentSales[index]['Iron SheetColor'] = "hsl(129, 70%, 50%)";
-          break;
-
-        case 'Copper Sheet':
-          recentSales[index]['Copper SheetColor'] = "hsl(77, 70%, 50%)";
-          break;
-      }
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      });
     }
-  });
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
 
-  return recentSales;
-}
+      var salesDict, _asyncMostRecentSales, productList, _asyncInventory;
 
-function findProductInQuantities(name, quantities) {
-  var foundProduct = null;
-  quantities.forEach(function (product, index) {
-    console.log(name + "checking product name: " + product['name']);
+      return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.async(function componentDidMount$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              salesDict = [];
+              _asyncMostRecentSales = this.fetchRecentSales(30).then(function (externalData) {
+                salesDict = _this2.getMostRecentSalesDict(externalData);
 
-    if (name == product['name']) {
-      foundProduct = product;
+                _this2.setState({
+                  recentSalesByDateDict: _this2.getMostRecentSalesNIVO(salesDict)
+                });
+              });
+              console.log("cdm mrs" + _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(salesDict));
+              productList = [];
+              _asyncInventory = this.fetchInventory().then(function (externalData) {
+                productList = externalData;
+              });
+              this.setState({
+                productList: productList,
+                recentSalesByDateDict: salesDict
+              });
+
+            case 6:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, null, this);
     }
-  });
-  return foundProduct;
-}
+  }, {
+    key: "getMostRecentSalesDict",
+    value: function getMostRecentSalesDict(sales) {
+      var _this3 = this;
+
+      console.log("mrd" + _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(sales));
+      var recentSales = {};
+      sales.forEach(function (sale, index) {
+        var date = moment(sale["date"]).format("L");
+        console.log("checking dateL : " + date);
+        var quantities = sale["quantities"];
+
+        if (recentSales[date]) {
+          console.log('this date exists' + date);
+          recentSales[date].forEach(function (product, index) {
+            var sameProduct = _this3.findProductInQuantities(product["name"], quantities);
+
+            if (sameProduct === null) {} else {
+              product["qty"] += sameProduct["qty"];
+            }
+          }, recentSales[date]);
+        } else {
+          //this date does not yet exist in recentSales
+          recentSales[date] = sale["quantities"];
+        }
+      });
+      console.log(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(recentSales));
+      return recentSales;
+    }
+  }, {
+    key: "getMostRecentSalesNIVO",
+    value: function getMostRecentSalesNIVO(recentSalesDict) {
+      console.log("nivo" + _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(recentSalesDict));
+      var recentSales = [];
+
+      _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0___default()(recentSalesDict).forEach(function (date, index) {
+        var salesOnDate = recentSalesDict[date];
+        recentSales.push({});
+        recentSales[index]['date'] = date;
+
+        for (var i = 0; i < salesOnDate.length; i++) {
+          recentSales[index][salesOnDate[i]['name']] = salesOnDate[i]['qty'];
+
+          switch (salesOnDate[i]['name']) {
+            case 'Iron Sheet':
+              recentSales[index]['Iron SheetColor'] = "hsl(129, 70%, 50%)";
+              break;
+
+            case 'Copper Sheet':
+              recentSales[index]['Copper SheetColor'] = "hsl(77, 70%, 50%)";
+              break;
+
+            case 'Free Product':
+              recentSales[index]['Free ProductColor'] = "hsl(150, 70%, 50%)";
+              break;
+          }
+        }
+      });
+
+      this.setState({
+        'isLoading': false
+      });
+      return recentSales;
+    }
+  }, {
+    key: "findProductInQuantities",
+    value: function findProductInQuantities(name, quantities) {
+      var foundProduct = null;
+      quantities.forEach(function (product, index) {
+        console.log(name + "checking product name: " + product['name']);
+
+        if (name == product['name']) {
+          foundProduct = product;
+        }
+      });
+      return foundProduct;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$state = this.state,
+          isLoading = _this$state.isLoading,
+          recentSalesByDateDict = _this$state.recentSalesByDateDict;
+      console.log(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(recentSalesByDateDict));
+      return __jsx(_components_IMALayout__WEBPACK_IMPORTED_MODULE_11__["default"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 116
+        },
+        __self: this
+      }, __jsx("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 117
+        },
+        __self: this
+      }, "form to add new sale form to add new customer form to add new inventory item1", isLoading ? __jsx("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 121
+        },
+        __self: this
+      }, "Loading...") : __jsx(react__WEBPACK_IMPORTED_MODULE_10___default.a.Fragment, null, __jsx("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 123
+        },
+        __self: this
+      }, "recent sales since 30 days ago: ", _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_1___default()(recentSalesByDateDict)), __jsx("div", {
+        style: {
+          height: 500 + "px",
+          width: 500 + 'px'
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 125
+        },
+        __self: this
+      }, __jsx(_components_IMARecentSalesChart__WEBPACK_IMPORTED_MODULE_12__["default"], {
+        data: recentSalesByDateDict,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 126
+        },
+        __self: this
+      })))), __jsx(_components_forms_IMANewSaleForm__WEBPACK_IMPORTED_MODULE_14__["default"], {
+        productList: this.state.productList,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 133
+        },
+        __self: this
+      }));
+    }
+  }]);
+
+  return Dashboard;
+}(react__WEBPACK_IMPORTED_MODULE_10__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Dashboard);
 
@@ -80584,7 +80945,7 @@ _defaultExport.__hash = "1755460400";
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!****************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5Cbhavi%5CDocuments%5CCoding%5CIMA-next%5Cpages%5Cindex.js ***!
   \****************************************************************************************************************************************/
@@ -80607,5 +80968,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

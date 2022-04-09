@@ -17,7 +17,7 @@
     "@nivo/bar": "^0.61.1",
     "formik": "^2.1.4",
     "isomorphic-unfetch": "^3.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "mongodb": "^3.5.3",
     "next": "^9.3.2",
     "next-connect": "^0.6.0",
